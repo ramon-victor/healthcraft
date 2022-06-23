@@ -1,0 +1,37 @@
+body {
+    font-family: 'Fira Sans', Arial, sans-serif;
+    margin: 0px;
+    color: #141414;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0px;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.navbar-brand{
+    margin-left: 30px;
+}
+
+.nav-link {
+    font-size: 0.875rem;
+}
+
+.modal.bb-alternate-modal .modal-content {
+    background: #555 none repeat scroll 0 0;
+    color: #fff;
+}
+
+button.bootbox-close-button.close {
+    display: none;
+    visibility: hidden;
+}
+

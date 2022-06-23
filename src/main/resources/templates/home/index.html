@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:include="layout :: htmlhead"></head>
+
+<body>
+    <header>
+        <nav th:replace="layout :: menu">(menu)</nav>
+    </header>
+
+    <main>
+        <div class="text-center">
+            <h1>HOSPITAL TOP</h1>
+            <p>Pagando bem, curamos qualquer enfermo</p>
+        </div>
+    </main>
+
+    <footer>
+        <div th:include="layout :: footer">(footer)</div>
+    </footer>
+</body>
+
+</html>

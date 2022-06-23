@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:include="layout :: htmlhead"></head>
+
+<body>
+    <header>
+        <nav th:replace="layout :: menu">(menu)</nav>
+    </header>
+
+    <main>
+        <div class="container container-medico">
+            <h1 class="text-center">Medico</h1>
+            <a th:href="@{/medico/novo}" class="btn btn-dark">Novo</a>
+
+            <table class="table" id="medicos">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOME</th>
+                        <th>CRM</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="medico : ${listaMedicos}">
+                        <td th:text="${medico.id}"></td>
+                        <td th:text="${medico.nome}"></td>
+                        <td th:text="${medico.CRM}"></td>
+                        <td><a th:href="@{'/medico/alterar/'+${medico.id}}" href="" class="btn btn-dark">Alterar</a>
+                            <button class="btn btn-danger js-delete" th:data-id="${medico.id}">Excluir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+    </main>
+
+    <footer>
+        <div th:include="layout :: footer">(footer)</div>
+    </footer>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#medicos").on('click', '.js-delete', function () {
+                let button = $(this);
+                bootbox.confirm("Confirma a exclusão \
+                    do registro?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: '/medico/deletar/' + button.attr('data-id'),
+                            method: 'GET',
+                            success: function () {
+                                window.location.href = '/medico/';
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

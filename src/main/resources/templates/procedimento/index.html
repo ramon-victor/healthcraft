@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:include="layout :: htmlhead"></head>
+
+<body>
+    <header>
+        <nav th:replace="layout :: menu">(menu)</nav>
+    </header>
+
+    <main>
+        <div class="container container-procedimento">
+            <h1 class="text-center">Procedimento</h1>
+            <a th:href="@{/procedimento/novo}" class="btn btn-dark">Novo</a>
+
+            <table class="table" id="procedimentos">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Descricao</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="procedimento : ${listaProcedimento}">
+                        <td th:text="${procedimento.id}"></td>
+                        <td th:text="${procedimento.descricao}"></td>
+                        <td><a th:href="@{'/procedimento/alterar/'+${procedimento.id}}" href="" class="btn btn-dark">Alterar</a>
+                            <button class="btn btn-danger js-delete" th:data-id="${procedimento.id}">Excluir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+    </main>
+
+    <footer>
+        <div th:include="layout :: footer">(footer)</div>
+    </footer>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#procedimentos").on('click', '.js-delete', function () {
+                let button = $(this);
+                bootbox.confirm("Confirma a exclusão \
+                    do registro?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: '/procedimento/deletar/' + button.attr('data-id'),
+                            method: 'GET',
+                            success: function () {
+                                window.location.href = '/procedimento/';
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
