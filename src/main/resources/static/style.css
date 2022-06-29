@@ -1,3 +1,5 @@
+@import url(home.css);
+
 body {
     font-family: 'Fira Sans', Arial, sans-serif;
     margin: 0px;
@@ -17,7 +19,7 @@ ul {
     list-style: none;
 }
 
-.navbar-brand{
+.navbar-brand {
     margin-left: 30px;
 }
 
@@ -34,4 +36,3 @@ button.bootbox-close-button.close {
     display: none;
     visibility: hidden;
 }
-

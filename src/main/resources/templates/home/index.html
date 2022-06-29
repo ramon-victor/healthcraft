@@ -4,21 +4,34 @@
 
 <head th:include="layout :: htmlhead"></head>
 
-<body>
-    <header>
-        <nav th:replace="layout :: menu">(menu)</nav>
-    </header>
+<body class="content">
+    <div>
+        <header>
+            <!-- <nav th:replace="layout :: menu">(menu)</nav>  -->
+        </header>
 
-    <main>
-        <div class="text-center">
-            <h1>HOSPITAL TOP</h1>
-            <p>Pagando bem, curamos qualquer enfermo</p>
-        </div>
-    </main>
+        <section class="container-home">
+            <div class="image-logo">
+                <img src="https://i.imgur.com/FSXDMHU.png" alt="logo healthcraft">
+            </div>
 
-    <footer>
-        <div th:include="layout :: footer">(footer)</div>
-    </footer>
+            <div class="menu">
+                <button onclick="location.href='/paciente';" class="btn-minecraft">Paciente</button>
+                <button onclick="location.href='/medico';" class="btn-minecraft">Médico</button>
+                <button onclick="location.href='/procedimento';" class="btn-minecraft">Procedimento</button>
+            </div>
+
+            <div class="menu-options">
+                <button class="btn-minecraft">Sobre...</button>
+                <button class="btn-minecraft">Quit</button>
+            </div>
+        </section>
+
+        <footer>
+            <div th:include="layout :: footer">(footer)</div>
+        </footer>
+
+    </div>
 </body>
 
 </html>
