@@ -32,11 +32,27 @@
 }
 
 .image-logo {
-    margin-bottom: 60px;
     display: block;
     max-width: 100%;
+    display: relative;
 }
 
+
+.image-logo img {
+    width: 650px;
+}
+
+.image-logo::before {
+    font-size: 1.25rem;
+    content: "Loved By Millions!";
+    color: yellow;
+    display: block;
+    top: 200px;
+    left: 800px;
+    position: absolute;
+    transform: rotate(340deg);
+    text-shadow: 0px 2px 0px #000000;
+}
 
 .menu {
     display: flex;
