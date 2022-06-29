@@ -20,6 +20,7 @@ public class Medico {
     @ManyToMany(cascade = { CascadeType.MERGE, CascadeType.REFRESH })
     private List<Procedimento> ListaProcedimentos = new ArrayList<>();
 
+    
     public long getId() {
         return id;
     }
