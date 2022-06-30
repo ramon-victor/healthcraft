@@ -34,24 +34,40 @@
 .image-logo {
     display: block;
     max-width: 100%;
-    display: relative;
+    position: relative;
 }
 
 
 .image-logo img {
-    width: 650px;
+    cursor: pointer;
+    width: 700px;
 }
 
 .image-logo::before {
-    font-size: 1.375rem;
+    white-space: nowrap;
+    display: block;
+    position: absolute;
+    font-size: 1.5rem;
     content: "Loved By Millions!";
     color: yellow;
-    display: block;
-    top: 240px;
-    left: 840px;
-    position: absolute;
-    transform: rotate(340deg);
+    top: 90px;
+    left: 440px;
     text-shadow: 0px 2px 0px #000000;
+    animation: zoom-in-zoom-out 0.5s ease infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+    0% {
+        transform: scale(1, 1) rotate(340deg);
+    }
+
+    50% {
+        transform: scale(1.1, 1.1) rotate(340deg);
+    }
+
+    100% {
+        transform: scale(1, 1) rotate(340deg);
+    }
 }
 
 .menu {
@@ -88,9 +104,12 @@
     box-shadow: inset 3px 3px 0 rgba(255, 255, 255, 0.5),
         inset -3px -3px 0 rgba(0, 0, 0, 0.5);
     cursor: pointer;
+    text-align: center;
+    text-decoration: none;
 }
 
 .btn-minecraft:hover {
+    color: rgb(247, 247, 247);
     background: rgba(115, 107, 221, 1);
 }
 
@@ -98,3 +117,5 @@
     color: rgb(246, 246, 44);
     outline: none;
 }
+
+
