@@ -1,0 +1,65 @@
+.container-paciente .titulo {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.buttons-menu {
+    margin: 40px 0;
+    width: 100%;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+
+.table-id {
+    padding: 40px 20px;
+}
+
+.paciente-avatar img{
+    width: 80px;
+    height: 80px;
+}
+
+.paciente-nome {
+    font-size: 1.275rem;
+}
+
+
+.paciente-dataNascimento {
+    margin-top: 15px;
+    font-size: 0.875rem;
+}
+
+.cell-name-sex {
+    white-space: nowrap;
+    padding: 0 20px;
+}
+
+.cell-buttons {
+    width: 50vw;
+    text-align: right;
+}
+
+.btn-alterar {
+    margin: 0;
+    text-align: center;
+    width: 60px;
+    height: 60px;
+}
+
+.btn-excluir {
+    background-color: brown;
+}
+
+
+.btn-alterar img {
+    width: 70%;
+    
+}
+
+.btn-excluir img {
+    opacity: 0.6;
+    width: 50%;
+}

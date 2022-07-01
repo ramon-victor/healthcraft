@@ -2,41 +2,58 @@
 
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-<head th:include="layout :: htmlhead"></head>
+<head th:include="layout :: htmlhead">
 
-<body>
+</head>
+
+<body class="content-menu">
     <header>
-        <nav th:replace="layout :: menu">(menu)</nav>
     </header>
 
     <main>
-        <div class="container container-paciente">
-            <h1 class="text-center">Paciente</h1>
-            <a th:href="@{/paciente/novo}" class="btn btn-dark">Novo</a>
+        <div class="container-home container-paciente">
+            <h1 class="titulo">Paciente</h1>
 
-            <table class="table" id="pacientes">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>NOME</th>
-                        <th>SEXO</th>
-                        <th>DATA NASCIMENTO</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="paciente : ${listaPacientes}">
-                        <td th:text="${paciente.id}"></td>
-                        <td th:text="${paciente.nome}"></td>
-                        <td th:text="${paciente.sexo}"></td>
-                        <td th:text="${paciente.dataNascimento}"></td>
-                        <td><a th:href="@{'/paciente/alterar/'+${paciente.id}}" href="" class="btn btn-dark">Alterar</a>
-                            <button class="btn btn-danger js-delete" th:data-id="${paciente.id}">Excluir</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="card-menu">
+                <table class="table-menu" id="pacientes">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="paciente : ${listaPacientes}">
+                            <td class="table-id" th:text="${paciente.id}"></td>
+                            <td class="paciente-sexo" id="sexo">
+                                <span class="paciente-avatar" th:if="${paciente.sexo == 'Masculino'}"><img src="https://i.imgur.com/5oWlmFp.png" alt=""></span>
+                                <span class="paciente-avatar" th:unless="${paciente.sexo == 'Masculino'}"><img src="https://i.imgur.com/45GjLuY.jpg" alt=""></span>
+                            </td>
+                            <td class=" cell-name-sex">
+                                <p class="paciente-nome" th:text="${paciente.nome}"></p>
+                                <p class="paciente-dataNascimento" th:text="${paciente.dataNascimento}"></p>
+                            </td>
 
+                            <td class="cell-buttons">
+                                <a type="button" th:href="@{'/paciente/alterar/'+${paciente.id}}" href=""
+                                    class="btn-minecraft btn-alterar"><img src="https://i.imgur.com/2svnRfB.png"
+                                        alt=""></a>
+                                <a type="button" class="btn-minecraft btn-alterar btn-excluir js-delete"
+                                    th:data-id="${paciente.id}"><img src="https://i.imgur.com/BAaUQSI.png" alt=""></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="buttons-menu">
+                <a th:href="@{/}" class="btn-minecraft btn-menu">Voltar</a>
+                <a th:href="@{/paciente/novo}" class="btn-minecraft btn-menu">Novo</a>
+            </div>
+
+        </div>
     </main>
 
     <footer>
@@ -62,6 +79,7 @@
             });
         });
     </script>
+
 </body>
 
 </html>

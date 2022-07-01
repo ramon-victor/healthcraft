@@ -1,9 +1,10 @@
 @import url(home.css);
+@import url(tela.css);
+@import url(paciente.css);
 
 body {
-    font-family: 'Fira Sans', Arial, sans-serif;
+    font-family: 'Minecraftia', sans-serif;
     margin: 0px;
-    color: #141414;
 }
 
 h1,

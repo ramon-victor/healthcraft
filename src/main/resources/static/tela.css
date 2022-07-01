@@ -1,0 +1,34 @@
+
+
+.content-menu {
+    color: #ffff;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 0;
+}
+
+.content-menu:before {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    display: block;
+    background-image: url(images/backgroud-menu.jpg);
+    height: 100%;
+    background-size: cover;
+
+}
+
+.btn-menu {
+    width: 150px;
+    justify-content: center;
+}
+
+.card-menu {
+    padding: 20px 200px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px 0px solid rgba(0, 0, 0, 0.90);
+}
