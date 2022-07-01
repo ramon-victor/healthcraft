@@ -47,10 +47,10 @@
     display: block;
     position: absolute;
     font-size: 1.5rem;
-    content: "Loved By Millions!";
+    content: "Walter Coan!";
     color: yellow;
     top: 90px;
-    left: 440px;
+    left: 500px;
     text-shadow: 0px 2px 0px #000000;
     animation: zoom-in-zoom-out 0.5s ease infinite;
 }
