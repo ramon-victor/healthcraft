@@ -15,7 +15,7 @@
             <h1 class="titulo">Paciente</h1>
 
             <div class="card-menu">
-                <table class="table-menu" id="pacientes">
+                <table class="table-menu table-striped" id="pacientes">
                     <thead>
                         <tr>
                             <th></th>
@@ -28,8 +28,10 @@
                         <tr th:each="paciente : ${listaPacientes}">
                             <td class="paciente-id" th:text="${paciente.id}"></td>
                             <td class="paciente-sexo" id="sexo">
-                                <span class="paciente-avatar" th:if="${paciente.sexo == 'Masculino'}"><img src="https://i.imgur.com/5oWlmFp.png" alt=""></span>
-                                <span class="paciente-avatar" th:unless="${paciente.sexo == 'Masculino'}"><img src="https://i.imgur.com/45GjLuY.jpg" alt=""></span>
+                                <span class="paciente-avatar" th:if="${paciente.sexo == 'Masculino'}"><img
+                                        src="https://i.imgur.com/5oWlmFp.png" alt=""></span>
+                                <span class="paciente-avatar" th:unless="${paciente.sexo == 'Masculino'}"><img
+                                        src="https://i.imgur.com/45GjLuY.jpg" alt=""></span>
                             </td>
                             <td class=" cell-name-sex">
                                 <p class="paciente-nome" th:text="${paciente.nome}"></p>
@@ -60,6 +62,10 @@
         <div th:include="layout :: footer">(footer)</div>
     </footer>
 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
     <script type="text/javascript">
         $(document).ready(function () {
             $("#pacientes").on('click', '.js-delete', function () {
@@ -76,6 +82,41 @@
                         });
                     }
                 });
+            });
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#pacientes').DataTable({
+                "pageLength": 4,
+                "lengthChange": false,
+                "searching": false,
+                "language":
+
+                {
+                    "decimal": "",
+                    "emptyTable": "Nenhum dado disponível",
+                    "info": "Exibindo _START_ - _END_ de _TOTAL_ pacientes",
+                    "infoEmpty": "Exibindo 0 até 0 de 0 pacientes",
+                    "infoFiltered": "(filtered from _MAX_ total entries)",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "loadingRecords": "Carregando...",
+                    "processing": "",
+                    "paginate": {
+                        "first": "Primeira",
+                        "last": "Última",
+                        "next": "Próxima",
+                        "previous": "Anterior"
+                    },
+                    "aria": {
+                        "sortAscending": ": activate to sort column ascending",
+                        "sortDescending": ": activate to sort column descending"
+                    },
+
+                }
             });
         });
     </script>
