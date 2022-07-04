@@ -1,10 +1,13 @@
 .dataTables_info,
 .paginate_button {
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 .page-link,
-.paginate_button.active .page-link {
+.paginate_button.active .page-link,
+.page-link:focus,
+#pacientes_previous .page-link:focus,
+#pacientes_next .page-link:focus {
     background: #727272;
     color: rgb(247, 247, 247);
     width: 40px;
@@ -40,5 +43,6 @@
 
 .page-link:focus {
     color: rgb(246, 246, 44);
+    background: #727272;
     outline: none;
 }
