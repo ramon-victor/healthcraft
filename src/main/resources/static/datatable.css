@@ -1,4 +1,10 @@
-.page-link, .paginate_button.active .page-link {
+.dataTables_info,
+.paginate_button {
+    margin-top: 40px;
+}
+
+.page-link,
+.paginate_button.active .page-link {
     background: #727272;
     color: rgb(247, 247, 247);
     width: 40px;
