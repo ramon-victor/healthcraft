@@ -15,8 +15,17 @@ public class PacienteDTO {
     private String sexo;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataNascimento;
+    private long cidadeId;
     private CidadeDTO cidade;
     
+    public CidadeDTO getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(CidadeDTO cidade) {
+        this.cidade = cidade;
+    }
+
     public long getId() {
         return id;
     }
@@ -49,12 +58,12 @@ public class PacienteDTO {
         this.dataNascimento = dataNascimento;
     }
 
-    public CidadeDTO getCidade() {
-        return cidade;
+    public long getCidadeId() {
+        return cidadeId;
     }
 
-    public void setCidade(CidadeDTO cidade) {
-        this.cidade = cidade;
+    public void setCidadeId(long cidadeId) {
+        this.cidadeId = cidadeId;
     }
 
 }

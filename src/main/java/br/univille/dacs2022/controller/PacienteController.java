@@ -48,8 +48,14 @@ public class PacienteController {
     public ModelAndView save(@Valid @ModelAttribute("paciente") PacienteDTO paciente,
             BindingResult bindingResult) {
 
+        var cidadeDTO = cidadeService.findById(paciente.getCidadeId());
+        paciente.setCidade(cidadeDTO);
+
         if (bindingResult.hasErrors()) {
-            return new ModelAndView("paciente/form");
+            var listaCidades = cidadeService.getAll();
+            HashMap<String,Object> dados = new HashMap<>();
+            dados.put("listaCidades",listaCidades);
+            return new ModelAndView("paciente/form", dados);
         }
         service.save(paciente);
         return new ModelAndView("redirect:/paciente");

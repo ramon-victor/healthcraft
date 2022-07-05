@@ -21,6 +21,12 @@ public class CidadeServiceImpl
     private CidadeMapper mapper = Mappers.getMapper(CidadeMapper.class);
 
     @Override
+    public CidadeDTO findById(long id) {
+        var cidade = repository.findById(id);
+        return mapper.mapCidade(cidade.get());
+    }
+    
+    @Override
     public List<CidadeDTO> getAll() {
         List<Cidade> listaCidades = repository.findAll();
         return mapper.mapListCidade(listaCidades);

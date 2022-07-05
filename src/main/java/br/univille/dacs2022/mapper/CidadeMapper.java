@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 import br.univille.dacs2022.dto.CidadeDTO;
 import br.univille.dacs2022.entity.Cidade;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface CidadeMapper {
     List<CidadeDTO> mapListCidade(List<Cidade> cidade);
     List<Cidade> mapListCidadeDTO(List<CidadeDTO> cidade);
