@@ -39,6 +39,16 @@
                                 <label for="dt-dataNasc">Data Nascimento:</label>
                                 <input type="date" class="form-control"
                                        th:field="*{dataNascimento}" id="dt-dataNasc" required>
+
+                            <div class="col-6">
+                                <label>Cidade:</label>
+                                <select th:field="*{cidade}">
+                                    <option th:each="umaCidade : ${listaCidades}"
+                                            th:value="${umaCidade.id}"
+                                            th:text="${umaCidade.nome}">
+                                    </option>
+                                </select>
+                            </div>
                             </div>
                         </div>
                     </div>
