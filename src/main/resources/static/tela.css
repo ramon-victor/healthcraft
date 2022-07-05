@@ -32,3 +32,9 @@
     background-color: rgba(0, 0, 0, 0.5);
     border: 1px 0px solid rgba(0, 0, 0, 0.90);
 }
+
+.buttons-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+}

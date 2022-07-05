@@ -2,65 +2,51 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head th:include="layout :: htmlhead"></head>
-<link rel="stylesheet" href="style.css">
 
 <body>
-    <header>
-        <nav th:replace="layout :: menu">(menu)</nav>
-    </header>
 
-    <main>
-        <div class="container">
-            <h1>Paciente</h1>
-            <form th:action="@{/paciente/(form)}"
-                  th:object="${paciente}" method="POST">
+    <div class="content-menu container-home container-paciente">
+        <h1 class="titulo titulo-form">Paciente</h1>
+        <form th:action="@{/paciente/(form)}" th:object="${paciente}" method="POST">
 
-                  <input type="hidden" th:field="*{id}">
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-8">
-                            <label for="txt-nome">Nome:</label>
-                            <input type="text" class="form-control" 
-                                   th:field="*{nome}" id="txt-nome">
-
-                                <p th:if="${#fields.hasErrors('nome')}"
-                                   th:errors="*{nome}"
-                                   class="alert alert-danger"></p>
-
-                            <label for="txt-sexo">Sexo:</label>
-                            <input type="text" placeholder="Masculino/Feminino"
-                                   th:field="*{sexo}" class="form-control" id="txt-sexo">
-
-                                   <p th:if="${#fields.hasErrors('sexo')}"
-                                   th:errors="*{sexo}"
-                                   class="alert alert-danger"></p>
-
-                            <div class="col-4">
-                                <label for="dt-dataNasc">Data Nascimento:</label>
-                                <input type="date" class="form-control"
-                                       th:field="*{dataNascimento}" id="dt-dataNasc" required>
-
-                            <div class="col-6">
-                                <label>Cidade:</label>
-                                <select th:field="*{cidadeId}">
-                                    <option th:each="umaCidade : ${listaCidades}"
-                                            th:value="${umaCidade.id}"
-                                            th:text="${umaCidade.nome}">
-                                    </option>
-                                </select>
-                            </div>
-                            </div>
-                        </div>
+            <input type="hidden" th:field="*{id}">
+            <div class="form-group">
+                <div>
+                    <label class="label" for="txtnome">Nome</label>
+                    <input class="form-control" th:field="*{nome}" type="text" id="txtnome">
+                    <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="alert alert-danger" />
+                </div>
+                <div class="sexo-dataNasc">
+                    <div>
+                        <label class="label label-sexo" for="txtsexo">Sexo</label>
+                        <input class="form-control input-sexo" th:field="*{sexo}" placeholder="Masculino/Feminino"
+                            type="text" id="txtsexo">
+                        <p th:if="${#fields.hasErrors('sexo')}" th:errors="*{sexo}" class="alert alert-danger" />
+                    </div>
+                    <div>
+                        <label class="label" for="txtdatanascimento">Data Nascimento</label>
+                        <input class="form-control" th:field="*{dataNascimento}" type="date" id="txtdatanascimento">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
-        </div>
-    </main>
+                <div class="form-group">
+                    <label class="label">Cidade</label>
+                    <select th:field="*{cidadeId}" class="form-select btn-minecraft page-link">
+                        <option th:each="cidade : ${listaCidades}" th:value="${cidade.id}" th:text="${cidade.nome}">
+                        </option>
 
-    <footer>
-        <div th:include="layout :: footer">(footer)</div>
-    </footer>
+                    </select>
+                    <p th:if="${#fields.hasErrors('cidade')}" th:errors="*{cidade}" class="alert alert-danger" />
+                </div>
+
+            </div>
+
+            <div class="buttons-form">
+                <button type="submit" class="btn-minecraft btn-menu">Enviar</button>
+                <a th:href="@{/paciente}" class="btn-minecraft btn-menu">Cancelar</a>
+            </div>
+        </form>
+    </div>
+    <div th:include="layout :: footer">(footer)</div>
 </body>
 
 </html>

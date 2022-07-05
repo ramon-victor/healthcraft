@@ -2,7 +2,7 @@
 @import url(tela.css);
 @import url(paciente.css);
 @import url(datatable.css);
-
+@import url(pacienteForm.css);
 body {
     font-family: 'Minecraftia', sans-serif;
     margin: 0px;
