@@ -1,7 +1,6 @@
 package br.univille.dacs2022.entity;
 
 import java.util.Date;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +11,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.annotations.ManyToAny;
 
 // POJO - Plain Old Java Object
 @Entity
