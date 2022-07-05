@@ -1,6 +1,6 @@
 package br.univille.dacs2022.dto;
 
-public class CIdadeDTO {
+public class CidadeDTO {
     private long id;
     private String nome;
     
