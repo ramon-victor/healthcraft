@@ -8,7 +8,7 @@
 como o Hibernate.</p>
 
 ## Estilo
-<p>Como descrito acima, o objetivo do projeto é focado no back-end, porém eu resolvi desenvolver minhas habilidades em front-end nesse projeto, aplicando
+<p>Como descrito acima, o objetivo do projeto era focado no back-end, porém eu resolvi desenvolver minhas habilidades em front-end, aplicando
 uma interface parecida com o do jogo <a href="https://www.minecraft.net/pt-br">Minecraft</a>.</p>
 
 ###
