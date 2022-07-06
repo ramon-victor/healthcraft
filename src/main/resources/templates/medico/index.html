@@ -4,37 +4,48 @@
 
 <head th:include="layout :: htmlhead"></head>
 
-<body>
+<body class="content-menu">
     <header>
-        <nav th:replace="layout :: menu">(menu)</nav>
     </header>
 
     <main>
-        <div class="container container-medico">
-            <h1 class="text-center">Medico</h1>
-            <a th:href="@{/medico/novo}" class="btn btn-dark">Novo</a>
+        <div class="container-home container-medico">
+            <h1 class="titulo">Medico</h1>
 
-            <table class="table" id="medicos">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>NOME</th>
-                        <th>CRM</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="medico : ${listaMedicos}">
-                        <td th:text="${medico.id}"></td>
-                        <td th:text="${medico.nome}"></td>
-                        <td th:text="${medico.CRM}"></td>
-                        <td><a th:href="@{'/medico/alterar/'+${medico.id}}" href="" class="btn btn-dark">Alterar</a>
-                            <button class="btn btn-danger js-delete" th:data-id="${medico.id}">Excluir</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="card-menu">
+                <table class="table-menu table-striped" id="medicos">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="medico : ${listaMedicos}">
+                            <td class="medico-id paciente-id" th:text="${medico.id}"></td>
+                            <td class="medico-avatar paciente-avatar"><img src="https://lh3.googleusercontent.com/WfV8cwc9qxq4RICkJWr8fSwOC4kusDNsTGmsacCdQKWiqCiVWdRY1xGhGwoLUaVm2UFGLkjvrubFUzSSATizcTe5md5HB_Me-0a0=s400" alt=""></td>
+                            <td class="medico-nome paciente-nome" th:text="${medico.nome}"></td>
+                            <td class="medico-CRM" th:text="'CRM: ' + ${medico.CRM}"></td>
 
+                            <td class="cell-buttons">
+                                <a type="button" th:href="@{'/medico/alterar/'+${medico.id}}" href=""
+                                    class="btn-minecraft btn-alterar"><img src="https://i.imgur.com/2svnRfB.png"
+                                        alt=""></a>
+                                <a type="button" class="btn-minecraft btn-alterar btn-excluir js-delete"
+                                    th:data-id="${medico.id}"><img src="https://i.imgur.com/BAaUQSI.png" alt=""></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="buttons-menu">
+                <a th:href="@{/}" class="btn-minecraft btn-menu">Voltar</a>
+                <a th:href="@{/medico/novo}" class="btn-minecraft btn-menu">Novo</a>
+            </div>
     </main>
 
     <footer>

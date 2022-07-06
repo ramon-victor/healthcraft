@@ -3,6 +3,8 @@
 @import url(paciente.css);
 @import url(datatable.css);
 @import url(pacienteForm.css);
+@import url(medico.css);
+
 body {
     font-family: 'Minecraftia', sans-serif;
     margin: 0px;

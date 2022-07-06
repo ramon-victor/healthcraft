@@ -1,0 +1,13 @@
+.medico-avatar img{
+    width: 50px;
+    height: 90px;
+}
+
+.medico-nome {
+    padding-left: 20px;
+}
+
+.medico-CRM {
+    white-space: nowrap;
+    padding: 0 200px;
+}
