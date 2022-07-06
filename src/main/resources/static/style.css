@@ -4,7 +4,7 @@
 @import url(datatable.css);
 @import url(pacienteForm.css);
 @import url(medico.css);
-
+@import url(procedimento.css);
 body {
     font-family: 'Minecraftia', sans-serif;
     margin: 0px;

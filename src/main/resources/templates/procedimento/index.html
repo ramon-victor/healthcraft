@@ -11,20 +11,19 @@
     <main>
         <div class="container-home container-paciente">
             <h1 class="titulo">Procedimento</h1>
-            <a th:href="@{/procedimento/novo}" class="btn btn-dark">Novo</a>
 
             <div class="card-menu">
                 <table class="table-menu table-striped" id="procedimentos">
                     <thead>
                         <tr>
-                            <th class="paciente-id">ID</th>
+                            <th class="paciente-id procedimento-id">ID</th>
                             <th>Descricao</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="procedimento : ${listaProcedimento}">
-                            <td class="paciente-id" th:text="${procedimento.id}"></td>
+                            <td class="paciente-id procedimento-id" th:text="${procedimento.id}"></td>
                             <td th:text="${procedimento.descricao}"></td>
                             <td class="cell-buttons">
                                 <a type="button" th:href="@{'/procedimento/alterar/'+${procedimento.id}}" href=""
@@ -37,6 +36,11 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+
+            <div class="buttons-menu">
+                <a th:href="@{/}" class="btn-minecraft btn-menu">Voltar</a>
+                <a th:href="@{/procedimento/novo}" class="btn-minecraft btn-menu">Novo</a>
             </div>
     </main>
 

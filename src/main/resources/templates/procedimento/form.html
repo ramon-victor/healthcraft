@@ -6,31 +6,31 @@
 
 <body>
     <header>
-        <nav th:replace="layout :: menu">(menu)</nav>
     </header>
 
     <main>
-        <div class="container">
-            <h1>Procedimento</h1>
-            <form th:action="@{/procedimento/(form)}"
-                  th:object="${procedimento}" method="POST">
+        <div class="content-menu container-home container-paciente">
+            <h1 class="titulo titulo-form">Procedimento</h1>
+            <form th:action="@{/procedimento/(form)}" th:object="${procedimento}" method="POST">
 
-                  <input type="hidden" th:field="*{id}">
+                <input type="hidden" th:field="*{id}">
                 <div class="form-group">
                     <div class="row">
                         <div class="col-8">
-                            <label for="txt-nome">Descricao:</label>
-                            <input type="text" class="form-control" 
-                                   th:field="*{descricao}" id="txt-nome">
-                            
-                            <p th:if="${#fields.hasErrors('descricao')}"
-                                   th:errors="*{descricao}"
-                                   class="alert alert-danger">
+                            <label class="label" for="txt-nome">Descricao</label>
+                            <input type="text" class="form-control" th:field="*{descricao}" id="txt-nome">
+
+                            <p th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"
+                                class="alert alert-danger">
                             </p>
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
+
+                <div class="buttons-form">
+                    <button type="submit" class="btn-minecraft btn-menu">Enviar</button>
+                    <a th:href="@{/procedimento}" class="btn-minecraft btn-menu">Cancelar</a>
+                </div>
             </form>
         </div>
     </main>
