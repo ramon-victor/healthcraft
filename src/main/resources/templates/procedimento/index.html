@@ -4,35 +4,40 @@
 
 <head th:include="layout :: htmlhead"></head>
 
-<body>
+<body class="content-menu">
     <header>
-        <nav th:replace="layout :: menu">(menu)</nav>
     </header>
 
     <main>
-        <div class="container container-procedimento">
-            <h1 class="text-center">Procedimento</h1>
+        <div class="container-home container-paciente">
+            <h1 class="titulo">Procedimento</h1>
             <a th:href="@{/procedimento/novo}" class="btn btn-dark">Novo</a>
 
-            <table class="table" id="procedimentos">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Descricao</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="procedimento : ${listaProcedimento}">
-                        <td th:text="${procedimento.id}"></td>
-                        <td th:text="${procedimento.descricao}"></td>
-                        <td><a th:href="@{'/procedimento/alterar/'+${procedimento.id}}" href="" class="btn btn-dark">Alterar</a>
-                            <button class="btn btn-danger js-delete" th:data-id="${procedimento.id}">Excluir</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
+            <div class="card-menu">
+                <table class="table-menu table-striped" id="procedimentos">
+                    <thead>
+                        <tr>
+                            <th class="paciente-id">ID</th>
+                            <th>Descricao</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="procedimento : ${listaProcedimento}">
+                            <td class="paciente-id" th:text="${procedimento.id}"></td>
+                            <td th:text="${procedimento.descricao}"></td>
+                            <td class="cell-buttons">
+                                <a type="button" th:href="@{'/procedimento/alterar/'+${procedimento.id}}" href=""
+                                    class="btn-minecraft btn-alterar"><img src="https://i.imgur.com/2svnRfB.png"
+                                        alt=""></a>
+                                <a type="button" class="btn-minecraft btn-alterar btn-excluir js-delete"
+                                    th:data-id="${procedimento.id}"><img src="https://i.imgur.com/BAaUQSI.png"
+                                        alt=""></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
     </main>
 
     <footer>
