@@ -4,6 +4,7 @@
 }
 
 .medico-nome {
+    white-space: nowrap;
     padding-left: 20px;
 }
 

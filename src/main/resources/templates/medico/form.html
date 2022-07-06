@@ -6,41 +6,36 @@
 
 <body>
     <header>
-        <nav th:replace="layout :: menu">(menu)</nav>
     </header>
 
     <main>
-        <div class="container">
-            <h1>Medico</h1>
-            <form th:action="@{/medico/(form)}"
-                  th:object="${medico}" method="POST">
+        <div class="content-menu container-home container-paciente">
+            <h1 class="titulo titulo-form">Medico</h1>
+            <form th:action="@{/medico/(form)}" th:object="${medico}" method="POST">
 
-                  <input type="hidden" th:field="*{id}">
+                <input type="hidden" th:field="*{id}">
                 <div class="form-group">
                     <div class="row">
                         <div class="col-8">
-                            
-                            <label for="txt-nome">Nome:</label>
-                            <input type="text" class="form-control" 
-                                   th:field="*{nome}" id="txt-nome">
 
-                            <p th:if="${#fields.hasErrors('nome')}"
-                                   th:errors="*{nome}"
-                                   class="alert alert-danger">
+                            <label class="label" for="txt-nome">Nome</label>
+                            <input type="text" class="form-control" th:field="*{nome}" id="txt-nome">
+
+                            <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="alert alert-danger">
                             </p>
-                                   
-                            <label for="txt-CRM">CRM:</label>
-                            <input type="text"
-                                   th:field="*{CRM}" class="form-control" id="txt-CRM">
 
-                            <p th:if="${#fields.hasErrors('CRM')}"
-                                   th:errors="*{CRM}"
-                                   class="alert alert-danger">
+                            <label class="label" for="txt-CRM">CRM</label>
+                            <input type="text" th:field="*{CRM}" class="form-control" id="txt-CRM">
+
+                            <p th:if="${#fields.hasErrors('CRM')}" th:errors="*{CRM}" class="alert alert-danger">
                             </p>
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <div class="buttons-form">
+                    <button type="submit" class="btn-minecraft btn-menu">Enviar</button>
+                    <a th:href="@{/medico}" class="btn-minecraft btn-menu">Cancelar</a>
+                </div>
             </form>
         </div>
     </main>
