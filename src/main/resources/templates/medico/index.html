@@ -8,7 +8,7 @@
     <header>
     </header>
 
-    <main>
+    <section>
         <div class="container-home container-medico">
             <h1 class="titulo">Medico</h1>
 
@@ -26,7 +26,9 @@
                     <tbody>
                         <tr th:each="medico : ${listaMedicos}">
                             <td class="medico-id paciente-id" th:text="${medico.id}"></td>
-                            <td class="medico-avatar paciente-avatar"><img src="https://lh3.googleusercontent.com/WfV8cwc9qxq4RICkJWr8fSwOC4kusDNsTGmsacCdQKWiqCiVWdRY1xGhGwoLUaVm2UFGLkjvrubFUzSSATizcTe5md5HB_Me-0a0=s400" alt=""></td>
+                            <td class="medico-avatar paciente-avatar"><img
+                                    src="https://lh3.googleusercontent.com/WfV8cwc9qxq4RICkJWr8fSwOC4kusDNsTGmsacCdQKWiqCiVWdRY1xGhGwoLUaVm2UFGLkjvrubFUzSSATizcTe5md5HB_Me-0a0=s400"
+                                    alt=""></td>
                             <td class="medico-nome paciente-nome" th:text="${medico.nome}"></td>
                             <td class="medico-CRM" th:text="'CRM: ' + ${medico.CRM}"></td>
 
@@ -46,7 +48,7 @@
                 <a th:href="@{/}" class="btn-minecraft btn-menu">Voltar</a>
                 <a th:href="@{/medico/novo}" class="btn-minecraft btn-menu">Novo</a>
             </div>
-    </main>
+    </section>
 
     <footer>
         <div th:include="layout :: footer">(footer)</div>
