@@ -3,6 +3,7 @@ package br.univille.dacs2022.entity;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,18 +31,8 @@ public class Paciente {
     private Cidade cidade;
     @ManyToMany(cascade = {CascadeType.REFRESH, CascadeType.MERGE})
     private List<PlanoDeSaude> listaPlanos = new ArrayList<>();
-
-
-
-    public List<PlanoDeSaude> getListaPlanos() {
-        return listaPlanos;
-    }
-
-    public void setListaPlanos(List<PlanoDeSaude> listaPlanos) {
-        this.listaPlanos = listaPlanos;
-    }
-
     public long getId() {
+        
         return id;
     }
 

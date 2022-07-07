@@ -3,7 +3,6 @@ package br.univille.dacs2022.dto;
 public class PlanoDeSaudeDTO {
     private long id;
     private String nome;
-    
     public long getId() {
         return id;
     }
