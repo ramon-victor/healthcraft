@@ -4,13 +4,13 @@
 <head th:include="layout :: htmlhead"></head>
 
 <body>
+    <form th:action="@{/paciente/(form)}" th:object="${paciente}" method="POST">
 
-    <div class="content-menu container-home container-paciente">
-        <h1 class="titulo titulo-form">Paciente</h1>
-        <form th:action="@{/paciente/(form)}" th:object="${paciente}" method="POST">
-
+        <div class="content-menu container-home container-paciente container-pacienteForm">
             <input type="hidden" th:field="*{id}">
             <div class="form-group">
+                <h1 class="titulo titulo-form">Paciente</h1>
+
                 <div>
                     <label class="label" for="txtnome">Nome</label>
                     <input class="form-control" th:field="*{nome}" type="text" id="txtnome">
@@ -37,15 +37,49 @@
                     </select>
                     <p th:if="${#fields.hasErrors('cidade')}" th:errors="*{cidade}" class="alert alert-danger" />
                 </div>
+            </div>
 
+            <div class="plano">
+                <label class="label">Plano de Saúde</label>
+                <div class="buttons">
+                    <select th:field="*{planoId}" class="form-select btn-minecraft page-link">
+                        <option th:each="umPlano : ${listaPlanos}" th:value="${umPlano.id}" th:text="${umPlano.nome}">
+                        </option>
+
+                    </select>
+                    <button type="submit" name="incplano" class="btn btn-primary btn-minecraft btn-plus">+</button>
+                </div>
+
+                <div class="form-group">
+                    <table class="table-menu">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="umPlano, stat : *{listaPlanos}">
+                                <td th:text="${umPlano.nome}"></td>
+                                <input type="hidden" th:field="*{listaPlanos[__${stat.index}__].id}" />
+                                <input type="hidden" th:field="*{listaPlanos[__${stat.index}__].nome}" />
+                                <td>
+                                    <button type="submit" name="removeitem" th:value="__${stat.index}__"
+                                        class="btn btn-primary">Remover</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <div class="buttons-form">
-                <button type="submit" class="btn-minecraft btn-menu">Enviar</button>
+                <button type="submit" name="save" class="btn-minecraft btn-menu">Enviar</button>
                 <a th:href="@{/paciente}" class="btn-minecraft btn-menu">Cancelar</a>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
+
     <div th:include="layout :: footer">(footer)</div>
 </body>
 

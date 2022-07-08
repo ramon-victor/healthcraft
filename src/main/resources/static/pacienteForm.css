@@ -1,3 +1,8 @@
+.container-pacienteForm {
+    display: flex;
+    justify-content: space-between;
+}
+
 .titulo-form {
     padding: 80px;
 }
@@ -61,4 +66,22 @@ select:-webkit-autofill:focus {
 
 .buttons-form .btn-menu {
     width: 400px;
+}
+
+.plano {
+    align-items: center;
+    display: flex;
+}
+
+.plano .buttons {
+    margin-left: 40px;
+    display: flex;
+}
+.plano .btn-minecraft {
+    margin: 0 0 0 5px;
+    width: 150px;
+}
+
+.plano .btn-plus {
+    width: 50px;
 }

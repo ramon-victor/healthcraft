@@ -36,6 +36,22 @@ public class Paciente {
         return id;
     }
 
+    public Cidade getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
+    }
+
+    public List<PlanoDeSaude> getListaPlanos() {
+        return listaPlanos;
+    }
+
+    public void setListaPlanos(List<PlanoDeSaude> listaPlanos) {
+        this.listaPlanos = listaPlanos;
+    }
+
     public Date getDataNascimento() {
         return dataNascimento;
     }

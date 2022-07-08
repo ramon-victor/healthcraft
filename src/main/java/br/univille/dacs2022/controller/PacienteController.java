@@ -46,11 +46,11 @@ public class PacienteController {
         HashMap<String,Object> dados = new HashMap<>();
         dados.put("paciente", paciente);
         dados.put("listaCidades", listaCidades);
-        dados.put("listaPlanos",listaPlanos);
+        dados.put("listaPlanos", listaPlanos);
         return new ModelAndView("paciente/form", dados);
     }
 
-    @PostMapping(params = "form")
+    @PostMapping(params = "save")
     public ModelAndView save(@Valid @ModelAttribute("paciente") PacienteDTO paciente,
             BindingResult bindingResult) {
 
@@ -63,10 +63,12 @@ public class PacienteController {
             dados.put("listaCidades",listaCidades);
             return new ModelAndView("paciente/form", dados);
         }
+
         service.save(paciente);
         return new ModelAndView("redirect:/paciente");
 
     }
+
     @PostMapping(params="incplano")
     public ModelAndView incluirPlano(@Valid @ModelAttribute("paciente") 
                                 PacienteDTO paciente,
@@ -84,6 +86,7 @@ public class PacienteController {
 
         return new ModelAndView("paciente/form",dados);
     }
+    
     @PostMapping(params="removeitem")
     public ModelAndView removerPlano(@Valid @ModelAttribute("paciente") 
                                 PacienteDTO paciente,

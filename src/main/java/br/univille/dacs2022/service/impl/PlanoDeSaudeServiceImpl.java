@@ -1,9 +1,11 @@
 package br.univille.dacs2022.service.impl;
 
 import java.util.List;
+
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import br.univille.dacs2022.dto.PlanoDeSaudeDTO;
 import br.univille.dacs2022.mapper.PlanoDeSaudeMapper;
 import br.univille.dacs2022.repository.PlanoDeSaudeRepository;
