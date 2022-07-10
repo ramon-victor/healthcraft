@@ -43,76 +43,73 @@
                             <label class="label">Plano de Saúde</label>
                         </div>
                         <div>
-                            <button type="button" data-toggle="modal" data-target="#planoModal"
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#planoModal"
                                 class="btn-minecraft btn-planos">Alterar planos</button>
                         </div>
-                        
+
                     </div>
-                   
-                    <div class="modal fade" id="planoModal" tabindex="-1" role="dialog"
-                        aria-labelledby="planoModalTitulo" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="planoModalTituloLongo">Modal title</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
 
-                                <div class="modal-body">
-                                    <div class="buttons">
-                                        <select th:field="*{planoId}" class="form-select btn-minecraft page-link">
-                                            <option th:each="umPlano : ${listaPlanos}" th:value="${umPlano.id}"
-                                                th:text="${umPlano.nome}">
-                                            </option>
 
-                                        </select>
-                                        <button type="submit" name="incplano"
-                                            class="btn btn-primary btn-minecraft btn-plus">+</button>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <table class="table-menu">
-                                            <thead>
-                                                <tr>
-                                                    <th>Nome</th>
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr th:each="umPlano, stat : *{listaPlanos}">
-                                                    <td th:text="${umPlano.nome}"></td>
-                                                    <input type="hidden"
-                                                        th:field="*{listaPlanos[__${stat.index}__].id}" />
-                                                    <input type="hidden"
-                                                        th:field="*{listaPlanos[__${stat.index}__].nome}" />
-                                                    <td>
-                                                        <button type="submit" name="removeitem"
-                                                            th:value="__${stat.index}__"
-                                                            class="btn btn-primary">Remover</button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                        </div>
+                    <div class="buttons-form">
+                        <button type="submit" name="save" class="btn-minecraft btn-menu">Enviar</button>
+                        <a th:href="@{/paciente}" class="btn-minecraft btn-menu">Cancelar</a>
                     </div>
-                </div>
-                <div class="buttons-form">
-                    <button type="submit" name="save" class="btn-minecraft btn-menu">Enviar</button>
-                    <a th:href="@{/paciente}" class="btn-minecraft btn-menu">Cancelar</a>
-                </div>
             </section>
         </article>
 
+
+        <!-- Modal -->
+        <div class="modal fade" id="planoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="planoModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="planoModalLabel">Planos de Saúde</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="buttons">
+                            <select th:field="*{planoId}" class="form-select btn-minecraft page-link">
+                                <option th:each="umPlano : ${listaPlanos}" th:value="${umPlano.id}"
+                                    th:text="${umPlano.nome}">
+                                </option>
+
+                            </select>
+                            <button type="submit" name="incplano"
+                                class="btn btn-primary btn-minecraft btn-plus">+</button>
+                        </div>
+
+                        <div class="form-group">
+                            <table class="table-menu">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="umPlano, stat : *{listaPlanos}">
+                                        <td th:text="${umPlano.nome}"></td>
+                                        <input type="hidden" th:field="*{listaPlanos[__${stat.index}__].id}" />
+                                        <input type="hidden" th:field="*{listaPlanos[__${stat.index}__].nome}" />
+                                        <td>
+                                            <button type="submit" name="removeitem" th:value="__${stat.index}__"
+                                                class="btn-minecraft btn-alterar btn-excluir">Remover</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-minecraft btn-menu"
+                            data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </form>
 
     <footer th:include="layout :: footer">(footer)</footer>

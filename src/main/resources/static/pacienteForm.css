@@ -66,25 +66,30 @@ select:-webkit-autofill:focus {
 }
 
 .buttons-form {
-    margin-top: 120px;
+    margin-top: 50px;
 }
 
 .buttons-form .btn-menu {
     width: 400px;
 }
 
-.plano {
-    
+#planoModal .modal-content{
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
-.plano .buttons {
-    margin-left: 40px;
-}
-.plano .btn-minecraft {
-    margin: 0 0 0 5px;
-    width: 150px;
+.modal-body .buttons {
+    display: flex;
+    margin-bottom: 40px;
 }
 
-.plano .btn-plus {
+.modal-body .btn-plus {
     width: 50px;
+    margin-left: 20px;
+}
+
+.modal-body .btn-excluir {
+    font-size: 0.75rem;
+    width: 120px;
+    height: 40px;
 }
