@@ -22,6 +22,7 @@
                             <th></th>
                             <th></th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,7 +38,7 @@
                                 <p class="paciente-nome" th:text="${paciente.nome}"></p>
                                 <p class="paciente-dataNascimento" th:text="${paciente.dataNascimento}"></p>
                             </td>
-
+                            <td class="paciente-cidade" th:text="${paciente.cidade.nome}"></td>
                             <td class="cell-buttons">
                                 <a type="button" th:href="@{'/paciente/alterar/'+${paciente.id}}" href=""
                                     class="btn-minecraft btn-alterar"><img src="https://i.imgur.com/2svnRfB.png"></a>

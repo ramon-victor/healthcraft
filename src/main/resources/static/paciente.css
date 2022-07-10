@@ -33,6 +33,11 @@
     font-size: 0.875rem;
 }
 
+.paciente-cidade {
+    padding-left: 120px;
+}
+
+
 .cell-name-sex {
     white-space: nowrap;
     padding: 0 20px;
