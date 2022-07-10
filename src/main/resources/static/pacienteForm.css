@@ -1,6 +1,6 @@
-.container-pacienteForm {
-    display: flex;
-    justify-content: space-between;
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .titulo-form {
@@ -56,8 +56,13 @@ select:-webkit-autofill:focus {
 
 .form-select,
 .form-select:focus {
-    width: 600px;
+    width: 300px;
     border-radius: 0;
+    background: url(https://i.imgur.com/BbYQ2mx.png) 100% / 8%  no-repeat #727272;
+}
+
+.btn-planos {
+    width: 200px;
 }
 
 .buttons-form {
@@ -69,13 +74,11 @@ select:-webkit-autofill:focus {
 }
 
 .plano {
-    align-items: center;
-    display: flex;
+    
 }
 
 .plano .buttons {
     margin-left: 40px;
-    display: flex;
 }
 .plano .btn-minecraft {
     margin: 0 0 0 5px;

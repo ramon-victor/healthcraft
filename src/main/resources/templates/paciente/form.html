@@ -5,82 +5,118 @@
 
 <body>
     <form th:action="@{/paciente/(form)}" th:object="${paciente}" method="POST">
-
-        <div class="content-menu container-home container-paciente container-pacienteForm">
-            <input type="hidden" th:field="*{id}">
-            <div class="form-group">
-                <h1 class="titulo titulo-form">Paciente</h1>
-
-                <div>
-                    <label class="label" for="txtnome">Nome</label>
-                    <input class="form-control" th:field="*{nome}" type="text" id="txtnome">
-                    <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="alert alert-danger" />
-                </div>
-                <div class="sexo-dataNasc">
-                    <div>
-                        <label class="label label-sexo" for="txtsexo">Sexo</label>
-                        <input class="form-control input-sexo" th:field="*{sexo}" placeholder="Masculino/Feminino"
-                            type="text" id="txtsexo">
-                        <p th:if="${#fields.hasErrors('sexo')}" th:errors="*{sexo}" class="alert alert-danger" />
-                    </div>
-                    <div>
-                        <label class="label" for="txtdatanascimento">Data Nascimento</label>
-                        <input class="form-control" th:field="*{dataNascimento}" type="date" id="txtdatanascimento">
-                    </div>
-                </div>
+        <article>
+            <section class="content-menu container-home container-paciente container-pacienteForm">
+                <input type="hidden" th:field="*{id}">
                 <div class="form-group">
-                    <label class="label">Cidade</label>
-                    <select th:field="*{cidadeId}" class="form-select btn-minecraft page-link">
-                        <option th:each="cidade : ${listaCidades}" th:value="${cidade.id}" th:text="${cidade.nome}">
-                        </option>
+                    <h1 class="titulo titulo-form text-center">Paciente</h1>
 
-                    </select>
-                    <p th:if="${#fields.hasErrors('cidade')}" th:errors="*{cidade}" class="alert alert-danger" />
+                    <div>
+                        <label class="label" for="txtnome">Nome</label>
+                        <input class="form-control" th:field="*{nome}" type="text" id="txtnome">
+                        <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="alert alert-danger" />
+                    </div>
+                    <div class="sexo-dataNasc">
+                        <div>
+                            <label class="label label-sexo" for="txtsexo">Sexo</label>
+                            <input class="form-control input-sexo" th:field="*{sexo}" placeholder="Masculino/Feminino"
+                                type="text" id="txtsexo">
+                            <p th:if="${#fields.hasErrors('sexo')}" th:errors="*{sexo}" class="alert alert-danger" />
+                        </div>
+                        <div>
+                            <label class="label" for="txtdatanascimento">Data Nascimento</label>
+                            <input class="form-control" th:field="*{dataNascimento}" type="date" id="txtdatanascimento">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label">Cidade</label>
+                        <select th:field="*{cidadeId}" class="form-select btn-minecraft page-link select-cidade">
+                            <option th:each="cidade : ${listaCidades}" th:value="${cidade.id}" th:text="${cidade.nome}">
+                            </option>
+
+                        </select>
+                        <p th:if="${#fields.hasErrors('cidade')}" th:errors="*{cidade}" class="alert alert-danger" />
+                    </div>
+
+                    <div>
+                        <div>
+                            <label class="label">Plano de Saúde</label>
+                        </div>
+                        <div>
+                            <button type="button" data-toggle="modal" data-target="#planoModal"
+                                class="btn-minecraft btn-planos">Alterar planos</button>
+                        </div>
+                        
+                    </div>
+                   
+                    <div class="modal fade" id="planoModal" tabindex="-1" role="dialog"
+                        aria-labelledby="planoModalTitulo" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="planoModalTituloLongo">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="buttons">
+                                        <select th:field="*{planoId}" class="form-select btn-minecraft page-link">
+                                            <option th:each="umPlano : ${listaPlanos}" th:value="${umPlano.id}"
+                                                th:text="${umPlano.nome}">
+                                            </option>
+
+                                        </select>
+                                        <button type="submit" name="incplano"
+                                            class="btn btn-primary btn-minecraft btn-plus">+</button>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <table class="table-menu">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nome</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr th:each="umPlano, stat : *{listaPlanos}">
+                                                    <td th:text="${umPlano.nome}"></td>
+                                                    <input type="hidden"
+                                                        th:field="*{listaPlanos[__${stat.index}__].id}" />
+                                                    <input type="hidden"
+                                                        th:field="*{listaPlanos[__${stat.index}__].nome}" />
+                                                    <td>
+                                                        <button type="submit" name="removeitem"
+                                                            th:value="__${stat.index}__"
+                                                            class="btn btn-primary">Remover</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="plano">
-                <label class="label">Plano de Saúde</label>
-                <div class="buttons">
-                    <select th:field="*{planoId}" class="form-select btn-minecraft page-link">
-                        <option th:each="umPlano : ${listaPlanos}" th:value="${umPlano.id}" th:text="${umPlano.nome}">
-                        </option>
-
-                    </select>
-                    <button type="submit" name="incplano" class="btn btn-primary btn-minecraft btn-plus">+</button>
+                <div class="buttons-form">
+                    <button type="submit" name="save" class="btn-minecraft btn-menu">Enviar</button>
+                    <a th:href="@{/paciente}" class="btn-minecraft btn-menu">Cancelar</a>
                 </div>
+            </section>
+        </article>
 
-                <div class="form-group">
-                    <table class="table-menu">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="umPlano, stat : *{listaPlanos}">
-                                <td th:text="${umPlano.nome}"></td>
-                                <input type="hidden" th:field="*{listaPlanos[__${stat.index}__].id}" />
-                                <input type="hidden" th:field="*{listaPlanos[__${stat.index}__].nome}" />
-                                <td>
-                                    <button type="submit" name="removeitem" th:value="__${stat.index}__"
-                                        class="btn btn-primary">Remover</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="buttons-form">
-                <button type="submit" name="save" class="btn-minecraft btn-menu">Enviar</button>
-                <a th:href="@{/paciente}" class="btn-minecraft btn-menu">Cancelar</a>
-            </div>
         </div>
     </form>
 
-    <div th:include="layout :: footer">(footer)</div>
+    <footer th:include="layout :: footer">(footer)</footer>
+
 </body>
 
 </html>
