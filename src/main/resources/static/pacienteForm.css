@@ -44,7 +44,8 @@ select:-webkit-autofill:focus {
     border: 3px solid #ffffff;
 }
 
-.sexo-dataNasc {
+.sexo-dataNasc,
+.cidade-plano {
     display: flex;
     justify-content: space-between;
 }
@@ -62,6 +63,7 @@ select:-webkit-autofill:focus {
 }
 
 .btn-planos {
+    display: block;
     width: 200px;
 }
 

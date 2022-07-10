@@ -94,3 +94,13 @@
     text-decoration: none;
     width: 100px;
 }
+
+.alert {
+    font-size: 0.75rem;
+    border-radius: 0;
+    border: 2px solid #a3a3a3;
+    color: #ffff;
+    background: #d13e3e;
+    padding: 7px 5px;
+    width: 360px;
+}
