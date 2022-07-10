@@ -37,3 +37,59 @@
     justify-items: center;
 }
 
+.modal-content{
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-body .buttons {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.modal-body .btn-plus {
+    width: 50px;
+    margin-left: 20px;
+}
+
+.modal-body .btn-excluir {
+    font-size: 0.75rem;
+    width: 120px;
+    height: 40px;
+}
+
+.modal-footer .btn-primary {
+    background: brown;
+    color: rgb(247, 247, 247);
+    width: 100%;
+    padding: .5rem 0;
+    margin-bottom: .75rem;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
+    font-size: 1rem;
+    letter-spacing: .025em;
+    border: 2px solid rgba(0, 0, 0, 1);
+    box-shadow: inset 3px 3px 0 rgba(255, 255, 255, 0.5),
+        inset -3px -3px 0 rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    width: 40px;
+}
+
+.modal-footer .btn-default {
+    background: #727272;
+    color: rgb(247, 247, 247);
+    width: 100%;
+    padding: .5rem 0;
+    margin-bottom: .75rem;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
+    font-size: 1rem;
+    letter-spacing: .025em;
+    border: 2px solid rgba(0, 0, 0, 1);
+    box-shadow: inset 3px 3px 0 rgba(255, 255, 255, 0.5),
+        inset -3px -3px 0 rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    width: 100px;
+}
