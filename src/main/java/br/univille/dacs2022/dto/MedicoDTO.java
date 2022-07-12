@@ -1,5 +1,8 @@
 package br.univille.dacs2022.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -11,6 +14,9 @@ public class MedicoDTO {
     @NotBlank(message = "O campo não pode ficar vazio")
     @NotNull
     private String CRM;
+    private List<ProcedimentoDTO> listaProcedimentos= new ArrayList<>();
+    private long procedimentoId;
+
 
     public long getId() {
         return id;
@@ -34,6 +40,22 @@ public class MedicoDTO {
 
     public void setCRM(String cRM) {
         CRM = cRM;
+    }
+
+    public List<ProcedimentoDTO> getListaProcedimentos() {
+        return listaProcedimentos;
+    }
+
+    public void setListaProcedimentos(List<ProcedimentoDTO> listaProcedimentos) {
+        this.listaProcedimentos = listaProcedimentos;
+    }
+
+    public long getProcedimentoId() {
+        return procedimentoId;
+    }
+
+    public void setProcedimentoId(long procedimentoId) {
+        this.procedimentoId = procedimentoId;
     }
 
 

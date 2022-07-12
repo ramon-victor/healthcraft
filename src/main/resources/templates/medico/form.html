@@ -32,6 +32,39 @@
                         </div>
                     </div>
                 </div>
+                <div class="buttons">
+                    <select th:field="*{procedimentoId}" class="form-select btn-minecraft page-link">
+                        <option th:each="umProcedimento : ${listaProcedimentos}" th:value="${umProcedimento.id}"
+                            th:text="${umProcedimento.descricao}">
+                        </option>
+
+                    </select>
+                    <button type="submit" name="incproced"
+                        class="btn btn-primary btn-minecraft btn-plus">+</button>
+                </div>
+
+                <div class="form-group">
+                    <table class="table-menu">
+                        <thead>
+                            <tr>
+                                <th>Descrição</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="umProcedimento, stat : *{listaProcedimentos}">
+                                <td th:text="${umProcedimento.descricao}"></td>
+                                <input type="hidden" th:field="*{listaProcedimentos[__${stat.index}__].id}" />
+                                <input type="hidden" th:field="*{listaProcedimentos[__${stat.index}__].descricao}" />
+                                <td>
+                                    <button type="submit" name="removeitem" th:value="__${stat.index}__"
+                                        class="btn-minecraft btn-alterar btn-excluir">Remover</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
                 <div class="buttons-form">
                     <button type="submit" class="btn-minecraft btn-menu">Enviar</button>
                     <a th:href="@{/medico}" class="btn-minecraft btn-menu">Cancelar</a>

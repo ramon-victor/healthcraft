@@ -37,6 +37,16 @@
     justify-items: center;
 }
 
+
+.modal-header .btn-close {
+    background-color: #727272;
+    color: rgb(247, 247, 247);
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.8);
+    border: 2px solid rgba(0, 0, 0, 1);
+    box-shadow: inset 3px 3px 0 rgba(255, 255, 255, 0.5),
+        inset -3px -3px 0 rgba(0, 0, 0, 0.5);
+}
+
 .modal-content{
     color: #ffffff;
     background-color: rgba(0, 0, 0, 0.9);

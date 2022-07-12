@@ -18,7 +18,7 @@ public class Medico {
     private String nome;
     private String CRM;
     @ManyToMany(cascade = { CascadeType.MERGE, CascadeType.REFRESH })
-    private List<Procedimento> ListaProcedimentos = new ArrayList<>();
+    private List<Procedimento> listaProcedimentos = new ArrayList<>();
 
     
     public long getId() {

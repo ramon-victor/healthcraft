@@ -31,8 +31,9 @@ public class Paciente {
     private Cidade cidade;
     @ManyToMany(cascade = {CascadeType.REFRESH, CascadeType.MERGE})
     private List<PlanoDeSaude> listaPlanos = new ArrayList<>();
+
+
     public long getId() {
-        
         return id;
     }
 
