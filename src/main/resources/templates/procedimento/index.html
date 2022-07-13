@@ -24,7 +24,7 @@
                     <tbody>
                         <tr th:each="procedimento : ${listaProcedimento}">
                             <td class="paciente-id procedimento-id" th:text="${procedimento.id}"></td>
-                            <td th:text="${procedimento.descricao}"></td>
+                            <td class="procedimento-descricao" th:text="${procedimento.descricao}"></td>
                             <td class="cell-buttons">
                                 <a type="button" th:href="@{'/procedimento/alterar/'+${procedimento.id}}" href=""
                                     class="btn-minecraft btn-alterar"><img src="https://i.imgur.com/2svnRfB.png"
@@ -65,6 +65,46 @@
                     }
                 });
             });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#procedimentos').DataTable({
+                "pageLength": 6,
+                "lengthChange": false,
+                "searching": false,
+                "language":
+
+                {
+                    "decimal": "",
+                    "emptyTable": "Nenhum procedimento cadastrado.",
+                    "info": "Exibindo _START_ - _END_ de _TOTAL_ procedimentos",
+                    "infoEmpty": "Exibindo 0 até 0 de 0 procedimentos",
+                    "infoFiltered": "(filtered from _MAX_ total entries)",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "loadingRecords": "Carregando...",
+                    "processing": "",
+                    "paginate": {
+                        "first": "Primeira",
+                        "last": "Última",
+                        "next": ">",
+                        "previous": "<"
+                    },
+                    "aria": {
+                        "sortAscending": ": activate to sort column ascending",
+                        "sortDescending": ": activate to sort column descending"
+                    },
+
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".dataTables_empty ").before("<img src='https://mineblocks.com/1/wiki/images/8/89/Ghast.png' class='dataTables_empty_img' alt='Ghast Minecraft' />");
         });
     </script>
 </body>

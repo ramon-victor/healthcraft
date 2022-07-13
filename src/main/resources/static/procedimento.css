@@ -1,3 +1,7 @@
 .procedimento-id {
     padding: 20px 40px;
 }
+
+.procedimento-descricao {
+    white-space: nowrap;
+}
