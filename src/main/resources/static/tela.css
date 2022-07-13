@@ -66,9 +66,10 @@
 
 .modal-body .btn-excluir {
     font-size: 0.75rem;
-    width: 120px;
+    width: 40px;
     height: 40px;
     margin-left: 20px;
+    text-shadow: none;
 }
 
 .modal-footer .btn-primary {
@@ -105,6 +106,11 @@
     text-align: center;
     text-decoration: none;
     width: 100px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
 }
 
 .alert {

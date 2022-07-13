@@ -52,19 +52,9 @@
                     </div>
 
                     <div class="modal-body">
-                        <div class="buttons">
-                            <select th:field="*{procedimentoId}" class="form-select btn-minecraft page-link">
-                                <option th:each="umProcedimento : ${listaProcedimentos}" th:value="${umProcedimento.id}"
-                                    th:text="${umProcedimento.descricao}">
-                                </option>
-
-                            </select>
-                            <button type="submit" name="incproced"
-                                class="btn btn-primary btn-minecraft btn-plus">+</button>
-                        </div>
 
                         <div class="form-group">
-                            <table class="table-menu">
+                            <table class="table-menu" id="procedimentos">
                                 <thead>
                                     <tr>
                                         <th>Descrição</th>
@@ -73,22 +63,30 @@
                                 </thead>
                                 <tbody>
                                     <tr th:each="umProcedimento, stat : *{listaProcedimentos}">
-                                        <td th:text="${umProcedimento.descricao}"></td>
+                                        <td  class="plano-descricao" th:text="${umProcedimento.descricao}"></td>
                                         <input type="hidden" th:field="*{listaProcedimentos[__${stat.index}__].id}" />
                                         <input type="hidden"
                                             th:field="*{listaProcedimentos[__${stat.index}__].descricao}" />
                                         <td>
                                             <button type="submit" name="removeitem" th:value="__${stat.index}__"
-                                                class="btn-minecraft btn-alterar btn-excluir">Remover</button>
+                                                class="btn-minecraft btn-alterar btn-excluir">X</button>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
+
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btn-minecraft btn-menu"
-                            data-bs-dismiss="modal">Fechar</button>
+                        <div class="buttons">
+                            <select th:field="*{procedimentoId}" class="form-select btn-minecraft page-link">
+                                <option th:each="umProcedimento : ${listaProcedimentos}" th:value="${umProcedimento.id}"
+                                    th:text="${umProcedimento.descricao}">
+                                </option>
+
+                            </select>
+                            <button type="submit" name="incproced" class="btn btn-minecraft btn-plus">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -98,6 +96,35 @@
     <footer>
         <div th:include="layout :: footer">(footer)</div>
     </footer>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#procedimentos').DataTable({
+                "lengthChange": false,
+                "searching": false,
+                "info": false,
+                "bPaginate": false,
+                "language":
+
+                {
+                    "decimal": "",
+                    "emptyTable": "Nenhum procedimento vinculado.",
+                    "infoFiltered": "(filtered from _MAX_ total entries)",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "loadingRecords": "Carregando...",
+                    "processing": "",
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".dataTables_empty ").before("<img src='https://mineblocks.com/1/wiki/images/8/89/Ghast.png' class='dataTables_empty_img' alt='Ghast Minecraft' />");
+        });
+    </script>
 </body>
 
 </html>

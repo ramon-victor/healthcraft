@@ -46,3 +46,17 @@
     background: #727272;
     outline: none;
 }
+
+.dataTables_empty {
+    padding: 30px 0;
+    white-space: nowrap;
+}
+
+.dataTables_empty_img {
+    margin: 30px;
+    width: 30px;
+}
+
+.modal-body .pagination {
+    margin-top: 60px;
+}

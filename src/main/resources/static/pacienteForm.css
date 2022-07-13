@@ -82,3 +82,19 @@ select:-webkit-autofill:focus {
 .label-procedimento button{
     width: 300px;
 }
+
+
+.modal-footer .buttons {
+    display: flex;
+}
+
+.modal-footer .form-select,
+.modal-footer .btn-plus {
+    font-size: 0.875rem;
+    width: 240px;
+    height: 40px;
+}
+
+.modal-footer .btn-plus {
+    width: 40px;
+}
