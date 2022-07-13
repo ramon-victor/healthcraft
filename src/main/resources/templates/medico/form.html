@@ -2,12 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head th:include="layout :: htmlhead"></head>
-<link rel="stylesheet" href="style.css">
 
 <body>
-    <header>
-    </header>
-
     <form th:action="@{/medico/(form)}" th:object="${medico}" method="POST">
 
         <article>
@@ -39,7 +35,7 @@
                 </div>
 
                 <div class="buttons-form">
-                    <button type="submit" class="btn-minecraft btn-menu">Enviar</button>
+                    <button type="submit" name="save" class="btn-minecraft btn-menu">Enviar</button>
                     <a th:href="@{/medico}" class="btn-minecraft btn-menu">Cancelar</a>
                 </div>
             </section>
