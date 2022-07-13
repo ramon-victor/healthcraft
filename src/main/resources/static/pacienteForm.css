@@ -16,7 +16,7 @@
 
 
 .form-control,
-.form-control:focus{
+.form-control:focus {
     color: #E0E0E0;
     text-shadow: 2px 2px 0px #383838;
     width: 600px;
@@ -28,7 +28,7 @@
 
 /* Muda o estilo do auto completar dos inputs */
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover,
@@ -36,8 +36,8 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  -webkit-text-fill-color: #E0E0E0;
-  transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #E0E0E0;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 .form-control:focus {
@@ -59,7 +59,7 @@ select:-webkit-autofill:focus {
 .form-select:focus {
     width: 300px;
     border-radius: 0;
-    background: url(https://i.imgur.com/BbYQ2mx.png) 100% / 8%  no-repeat #727272;
+    background: url(https://i.imgur.com/BbYQ2mx.png) 100% / 8% no-repeat #727272;
 }
 
 .btn-planos {
@@ -75,3 +75,10 @@ select:-webkit-autofill:focus {
     width: 400px;
 }
 
+.label-procedimento {
+    margin-top: 20px;
+}
+
+.label-procedimento button{
+    width: 300px;
+}

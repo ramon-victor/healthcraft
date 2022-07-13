@@ -8,10 +8,11 @@
     <header>
     </header>
 
-    <main>
-        <div class="content-menu container-home container-paciente">
-            <h1 class="titulo titulo-form">Medico</h1>
-            <form th:action="@{/medico/(form)}" th:object="${medico}" method="POST">
+    <form th:action="@{/medico/(form)}" th:object="${medico}" method="POST">
+
+        <article>
+            <section class="content-menu container-home container-paciente">
+                <h1 class="titulo titulo-form">Medico</h1>
 
                 <input type="hidden" th:field="*{id}">
                 <div class="form-group">
@@ -20,7 +21,6 @@
 
                             <label class="label" for="txt-nome">Nome</label>
                             <input type="text" class="form-control" th:field="*{nome}" id="txt-nome">
-
                             <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="alert alert-danger">
                             </p>
 
@@ -32,46 +32,72 @@
                         </div>
                     </div>
                 </div>
-                <div class="buttons">
-                    <select th:field="*{procedimentoId}" class="form-select btn-minecraft page-link">
-                        <option th:each="umProcedimento : ${listaProcedimentos}" th:value="${umProcedimento.id}"
-                            th:text="${umProcedimento.descricao}">
-                        </option>
 
-                    </select>
-                    <button type="submit" name="incproced"
-                        class="btn btn-primary btn-minecraft btn-plus">+</button>
-                </div>
-
-                <div class="form-group">
-                    <table class="table-menu">
-                        <thead>
-                            <tr>
-                                <th>Descrição</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="umProcedimento, stat : *{listaProcedimentos}">
-                                <td th:text="${umProcedimento.descricao}"></td>
-                                <input type="hidden" th:field="*{listaProcedimentos[__${stat.index}__].id}" />
-                                <input type="hidden" th:field="*{listaProcedimentos[__${stat.index}__].descricao}" />
-                                <td>
-                                    <button type="submit" name="removeitem" th:value="__${stat.index}__"
-                                        class="btn-minecraft btn-alterar btn-excluir">Remover</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="label-procedimento">
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#procedimentoModal"
+                        class="btn-minecraft btn-planos">Alterar procedimentos</button>
                 </div>
 
                 <div class="buttons-form">
                     <button type="submit" class="btn-minecraft btn-menu">Enviar</button>
                     <a th:href="@{/medico}" class="btn-minecraft btn-menu">Cancelar</a>
                 </div>
-            </form>
+            </section>
+        </article>
+
+        <!-- Modal -->
+        <div class="modal fade" id="procedimentoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="procedimentoModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="procedimentoModalLabel">Procedimentos de Saúde</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="buttons">
+                            <select th:field="*{procedimentoId}" class="form-select btn-minecraft page-link">
+                                <option th:each="umProcedimento : ${listaProcedimentos}" th:value="${umProcedimento.id}"
+                                    th:text="${umProcedimento.descricao}">
+                                </option>
+
+                            </select>
+                            <button type="submit" name="incproced"
+                                class="btn btn-primary btn-minecraft btn-plus">+</button>
+                        </div>
+
+                        <div class="form-group">
+                            <table class="table-menu">
+                                <thead>
+                                    <tr>
+                                        <th>Descrição</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="umProcedimento, stat : *{listaProcedimentos}">
+                                        <td th:text="${umProcedimento.descricao}"></td>
+                                        <input type="hidden" th:field="*{listaProcedimentos[__${stat.index}__].id}" />
+                                        <input type="hidden"
+                                            th:field="*{listaProcedimentos[__${stat.index}__].descricao}" />
+                                        <td>
+                                            <button type="submit" name="removeitem" th:value="__${stat.index}__"
+                                                class="btn-minecraft btn-alterar btn-excluir">Remover</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-minecraft btn-menu"
+                            data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </main>
+    </form>
 
     <footer>
         <div th:include="layout :: footer">(footer)</div>
