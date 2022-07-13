@@ -88,6 +88,11 @@ select:-webkit-autofill:focus {
     display: flex;
 }
 
+.plano-nome {
+    white-space: nowrap;
+}
+
+
 .modal-footer .form-select,
 .modal-footer .btn-plus {
     font-size: 0.875rem;

@@ -78,7 +78,7 @@
                                 </thead>
                                 <tbody>
                                     <tr th:each="umPlano, stat : *{listaPlanos}">
-                                        <td th:text="${umPlano.nome}"></td>
+                                        <td class="plano-nome" th:text="${umPlano.nome}"></td>
                                         <input type="hidden" th:field="*{listaPlanos[__${stat.index}__].id}" />
                                         <input type="hidden" th:field="*{listaPlanos[__${stat.index}__].nome}" />
                                         <td>
