@@ -1,6 +1,7 @@
 package br.univille.dacs2022.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +31,26 @@ public class CidadeServiceImpl
     public CidadeDTO findById(long id) {
         var cidade = repository.findById(id);
         return mapper.mapCidade(cidade.get());
+    }
+
+    @Override
+    public CidadeDTO delete(long id) {
+        Optional<Cidade> cidadeEntity = repository.findById(id);
+
+        if (cidadeEntity.isPresent()) {
+            Cidade cidade = cidadeEntity.get();
+            repository.delete(cidade);
+            return mapper.mapCidade(cidadeEntity.get());
+        }
+        
+        return null;
+    }
+
+    @Override
+    public CidadeDTO save(CidadeDTO cidade) {
+        Cidade cidadeEntity = mapper.mapCidadeDTO(cidade);
+        cidadeEntity = repository.save(cidadeEntity);
+
+        return null;
     }
 }
