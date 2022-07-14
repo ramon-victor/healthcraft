@@ -62,6 +62,15 @@ select:-webkit-autofill:focus {
     background: url(https://i.imgur.com/BbYQ2mx.png) 100% / 8% no-repeat #727272;
 }
 
+.link-editar_cidades,
+.link-editar_cidades:hover,
+.link-editar_cidades:visited {
+    display: flex;
+    justify-content: center;
+    color: #a3a3a3;
+    font-size: 0.75rem;
+}
+
 .btn-planos {
     display: block;
     width: 200px;
@@ -79,7 +88,7 @@ select:-webkit-autofill:focus {
     margin-top: 20px;
 }
 
-.label-procedimento button{
+.label-procedimento button {
     width: 300px;
 }
 

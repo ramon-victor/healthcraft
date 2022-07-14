@@ -25,21 +25,19 @@
                         </div>
                         <div>
                             <label class="label" for="txtdatanascimento">Data Nascimento</label>
-                            <input class="form-control" th:field="*{dataNascimento}" type="date" id="txtdatanascimento"
-                                required>
+                            <input class="form-control" th:field="*{dataNascimento}" type="date" id="txtdatanascimento">
                         </div>
                     </div>
                     <div class="form-group cidade-plano">
                         <div>
                             <label class="label">Cidade</label>
-                            <select th:field="*{cidadeId}" class="form-select btn-minecraft page-link select-cidade"
+                            <select th:field="*{cidadeId}" class="form-select btn-minecraft page-link"
                                 required>
                                 <option th:each="cidade : ${listaCidades}" th:value="${cidade.id}"
                                     th:text="${cidade.nome}">
                                 </option>
                             </select>
-                            <p th:if="${#fields.hasErrors('cidade')}" th:errors="*{cidade}"
-                                class="alert alert-danger" />
+                            <a class="link-editar_cidades" th:href="@{/cidade/novo}">Editar Cidades</a>
                         </div>
                         <div class="label-plano">
                             <label class="label">Plano de Saúde</label>
