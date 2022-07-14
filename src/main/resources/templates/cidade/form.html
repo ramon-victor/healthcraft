@@ -8,19 +8,20 @@
         <article>
             <section class="content-menu container-home container-paciente container-pacienteForm">
                 <input type="hidden" th:field="*{id}">
-                <div class="form-group">
-                    <h1 class="titulo titulo-form text-center">Cidade</h1>
 
-                    <div>
-                        <label class="label" for="txtnome">Nome</label>
-                        <input class="form-control" th:field="*{nome}" type="text" id="txtnome">
-                        <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="alert alert-danger" />
-                    </div>
+                <h1 class="titulo titulo-form text-center">Cidade</h1>
 
-                    <div class="buttons-form">
-                        <button type="submit" name="save" class="btn-minecraft btn-menu">Enviar</button>
-                        <a th:href="@{/paciente/novo}" class="btn-minecraft btn-menu">Cancelar</a>
-                    </div>
+                <div>
+                    <label class="label" for="txtnome">Nome</label>
+                    <input class="form-control" th:field="*{nome}" type="text" id="txtnome">
+                    <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="alert alert-danger" />
+                </div>
+
+                <div class="buttons-form">
+                    <button type="submit" name="save" class="btn-minecraft btn-menu">Adicionar</button>
+                    <a th:href="@{/cidade/}" class="btn-minecraft btn-menu">Cancelar</a>
+                </div>
+
             </section>
         </article>
 
@@ -28,34 +29,6 @@
 
     <footer th:include="layout :: footer">(footer)</footer>
 
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#planos').DataTable({
-                "lengthChange": false,
-                "searching": false,
-                "info": false,
-                "bPaginate": false,
-                "language":
-
-                {
-                    "decimal": "",
-                    "emptyTable": "Nenhum plano de saúde.",
-                    "infoFiltered": "(filtered from _MAX_ total entries)",
-                    "infoPostFix": "",
-                    "thousands": ",",
-                    "loadingRecords": "Carregando...",
-                    "processing": "",
-                }
-            });
-        });
-    </script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".dataTables_empty ").before("<img src='https://mineblocks.com/1/wiki/images/8/89/Ghast.png' class='dataTables_empty_img' alt='Ghast Minecraft' />");
-        });
-    </script>
 </body>
 
 </html>

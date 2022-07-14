@@ -1,5 +1,7 @@
 package br.univille.dacs2022.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,17 @@ public class CidadeController {
     @Autowired
     private CidadeService service;
 
+
+    @GetMapping
+    public ModelAndView index() {
+
+        List<CidadeDTO> listaCidades = service.getAll();
+
+        return new ModelAndView("cidade/index",
+                "listaCidades", listaCidades);
+    }
+
+
     @GetMapping("/novo")
     public ModelAndView novo() {
         var cidade = new CidadeDTO();
@@ -36,14 +49,8 @@ public class CidadeController {
             return new ModelAndView("cidade/form");
         }
         service.save(cidade);
-        return new ModelAndView("redirect:/paciente/novo");
+        return new ModelAndView("redirect:/cidade");
 
-    }
-
-    @GetMapping(path = "/alterar/{id}")
-    public ModelAndView alterar(@PathVariable("id") long id) {
-        CidadeDTO cidade = service.findById(id);
-        return new ModelAndView("cidade/form","cidade",cidade);
     }
 
     @GetMapping(path = "/deletar/{id}")

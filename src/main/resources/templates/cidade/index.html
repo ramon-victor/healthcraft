@@ -1,80 +1,64 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-<head th:include="layout :: htmlhead">
+<head th:include="layout :: htmlhead"></head>
 
-</head>
+<body>
+    <article>
+        <section class="content-menu container-home container-cidade">
 
-<body class="content-menu">
-    <header>
-    </header>
 
-    <section>
-        <div class="container-home container-paciente">
-            <h1 class="titulo">Paciente</h1>
+            <h1 class="titulo titulo-form text-center">Cidade</h1>
 
-            <div class="card-menu">
-                <table class="table-menu table-striped" id="pacientes">
+            <div>
+                <table class="table-menu" id="cidades">
                     <thead>
                         <tr>
-                            <th></th>
-                            <th></th>
                             <th></th>
                             <th></th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="paciente : ${listaPacientes}">
-                            <td class="paciente-id" th:text="${paciente.id}"></td>
-                            <td class="paciente-sexo" id="sexo">
-                                <span class="paciente-avatar" th:if="${paciente.sexo == 'Masculino'}"><img
-                                        src="https://i.imgur.com/5oWlmFp.png" alt=""></span>
-                                <span class="paciente-avatar" th:unless="${paciente.sexo == 'Masculino'}"><img
-                                        src="https://i.imgur.com/45GjLuY.jpg" alt=""></span>
+                        <tr th:each="cidade : ${listaCidades}">
+                            <td class="cidade-id" th:text="${cidade.id}"></td>
                             </td>
                             <td class=" cell-name-sex">
-                                <p class="paciente-nome" th:text="${paciente.nome}"></p>
-                                <p class="paciente-dataNascimento" th:text="${paciente.dataNascimento}"></p>
+                                <p class="cidade-nome" th:text="${cidade.nome}"></p>
                             </td>
-                            <td class="paciente-cidade" th:text="${paciente.cidade.nome}"></td>
                             <td class="cell-buttons">
-                                <a type="button" th:href="@{'/paciente/alterar/'+${paciente.id}}" href=""
-                                    class="btn-minecraft btn-alterar"><img src="https://i.imgur.com/2svnRfB.png"></a>
                                 <a type="button" class="btn-minecraft btn-alterar btn-excluir js-delete"
-                                    th:data-id="${paciente.id}"><img src="https://i.imgur.com/BAaUQSI.png"></a>
+                                    th:data-id="${cidade.id}"><img src="https://i.imgur.com/BAaUQSI.png"></a>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="buttons-menu">
-                <a th:href="@{/}" class="btn-minecraft btn-menu">Voltar</a>
-                <a th:href="@{/paciente/novo}" class="btn-minecraft btn-menu">Novo</a>
+            <div class="buttons-form">
+                <a th:href="@{/cidade/novo}" class="btn-minecraft btn-menu">Adicionar Cidade</a>
+                <a th:href="@{/paciente/novo}" class="btn-minecraft btn-menu">Voltar</a>
             </div>
 
-        </div>
-    </section>
+        </section>
+    </article>
 
-    <footer>
-        <div th:include="layout :: footer">(footer)</div>
-    </footer>
 
+    <footer th:include="layout :: footer">(footer)</footer>
 
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $("#pacientes").on('click', '.js-delete', function () {
+            $("#cidades").on('click', '.js-delete', function () {
                 let button = $(this);
                 bootbox.confirm("Confirma a exclusão \
-                    do registro?", function (result) {
+                    da cidade?", function (result) {
                     if (result) {
                         $.ajax({
-                            url: '/paciente/deletar/' + button.attr('data-id'),
+                            url: '/cidade/deletar/' + button.attr('data-id'),
                             method: 'GET',
                             success: function () {
-                                window.location.href = '/paciente/';
+                                window.location.href = '/cidade/';
                             }
                         });
                     }
@@ -83,20 +67,19 @@
         });
     </script>
 
-
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#pacientes').DataTable({
-                "pageLength": 4,
+            $('#cidades').DataTable({
+                "pageLength": 5,
                 "lengthChange": false,
                 "searching": false,
                 "language":
 
                 {
                     "decimal": "",
-                    "emptyTable": "Nenhum paciente cadastrado.",
-                    "info": "Exibindo _START_ - _END_ de _TOTAL_ pacientes",
-                    "infoEmpty": "Exibindo 0 até 0 de 0 pacientes",
+                    "emptyTable": "Nenhuma cidade cadastrada.",
+                    "info": "Exibindo _START_ - _END_ de _TOTAL_ cidades",
+                    "infoEmpty": "Exibindo 0 até 0 de 0 cidades",
                     "infoFiltered": "(filtered from _MAX_ total entries)",
                     "infoPostFix": "",
                     "thousands": ",",

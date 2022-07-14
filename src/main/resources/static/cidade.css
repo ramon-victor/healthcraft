@@ -1,0 +1,10 @@
+.container-cidade .btn-excluir {
+    margin: 5px;
+    width: 35px;
+    height: 35px;
+}
+
+.container-cidade .btn-excluir img {
+    width: 40%;
+    margin-bottom: 50%;
+}

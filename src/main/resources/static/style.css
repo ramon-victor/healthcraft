@@ -6,6 +6,7 @@
 @import url(medico.css);
 @import url(procedimento.css);
 @import url(medicoForm.css);
+@import url(cidade.css);
 
 body {
     font-family: 'Minecraftia', sans-serif;
