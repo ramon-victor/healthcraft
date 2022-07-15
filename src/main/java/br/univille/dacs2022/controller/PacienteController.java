@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import br.univille.dacs2022.dto.PacienteDTO;
+import br.univille.dacs2022.dto.PlanoDeSaudeDTO;
 import br.univille.dacs2022.service.CidadeService;
 import br.univille.dacs2022.service.PacienteService;
 import br.univille.dacs2022.service.PlanoDeSaudeService;
@@ -75,14 +76,21 @@ public class PacienteController {
                                 BindingResult bindingResult){
         var idPlanoSelect = paciente.getPlanoId();
         var planoSelect = planoDeSaudeService.getById(idPlanoSelect);
-        paciente.getListaPlanos().add(planoSelect);
-
         var listaCidades = cidadeService.getAll();
         var listaPlanos = planoDeSaudeService.getAll();
         HashMap<String,Object> dados = new HashMap<>();
         dados.put("paciente",paciente);
         dados.put("listaCidades",listaCidades);
         dados.put("listaPlanos",listaPlanos);
+
+        // Verifica se paciente já contém o plano de saúde pelo ID
+        for (PlanoDeSaudeDTO umPlano : paciente.getListaPlanos()) {
+            if (idPlanoSelect == umPlano.getId()) {
+                return new ModelAndView("paciente/form", dados);
+            }
+        }
+
+        paciente.getListaPlanos().add(planoSelect);
 
         return new ModelAndView("paciente/form",dados);
     }
