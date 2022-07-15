@@ -62,6 +62,7 @@ public class MedicoController {
     @PostMapping(params = "incproced")
     public ModelAndView incluirProcedimento(@Valid @ModelAttribute("medico") MedicoDTO medico,
             BindingResult bindingResult) {
+
         var idProcedSelect = medico.getProcedimentoId();
         var procedSelect = procedimentoService.findById(idProcedSelect);
         medico.getListaProcedimentos().add(procedSelect);

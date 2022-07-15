@@ -44,4 +44,12 @@ public class Medico {
     public void setCRM(String cRM) {
         CRM = cRM;
     }
+
+    public List<Procedimento> getListaProcedimentos() {
+        return listaProcedimentos;
+    }
+
+    public void setListaProcedimentos(List<Procedimento> listaProcedimentos) {
+        this.listaProcedimentos = listaProcedimentos;
+    }
 }
