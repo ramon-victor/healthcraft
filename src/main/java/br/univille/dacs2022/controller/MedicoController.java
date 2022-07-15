@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import br.univille.dacs2022.dto.MedicoDTO;
+import br.univille.dacs2022.dto.ProcedimentoDTO;
 import br.univille.dacs2022.service.MedicoService;
 import br.univille.dacs2022.service.ProcedimentoService;
 
@@ -65,12 +66,19 @@ public class MedicoController {
 
         var idProcedSelect = medico.getProcedimentoId();
         var procedSelect = procedimentoService.findById(idProcedSelect);
-        medico.getListaProcedimentos().add(procedSelect);
-
         var listaProcedimentos = procedimentoService.getAll();
-        HashMap<String, Object> dados = new HashMap<>();
-        dados.put("medico", medico);
-        dados.put("listaProcedimentos", listaProcedimentos);
+                HashMap<String, Object> dados = new HashMap<>();
+                dados.put("medico", medico);
+                dados.put("listaProcedimentos", listaProcedimentos);
+
+        // Verifica se médico já contém o procedimento pelo ID
+        for (ProcedimentoDTO umProcedimento : medico.getListaProcedimentos()) {
+            if (idProcedSelect == umProcedimento.getId()) {
+                return new ModelAndView("medico/form", dados);
+            }
+        }
+
+        medico.getListaProcedimentos().add(procedSelect);
 
         return new ModelAndView("medico/form", dados);
     }
