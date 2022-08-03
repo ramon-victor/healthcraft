@@ -23,6 +23,16 @@
             "projectName": "coredacs2022",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Dacs2022Application<dacs2022>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.univille.dacs2022.Dacs2022Application",
+            "projectName": "dacs2022",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
