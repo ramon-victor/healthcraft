@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import br.univille.dacs2022.dto.PlanoDeSaudeDTO;
 import br.univille.dacs2022.mapper.PlanoDeSaudeMapper;
-import br.univille.dacs2022.repository.PlanoDeSaudeRepository;
+import br.univille.coredacs2022.repository.PlanoDeSaudeRepository;
 import br.univille.dacs2022.service.PlanoDeSaudeService;
 
 @Service

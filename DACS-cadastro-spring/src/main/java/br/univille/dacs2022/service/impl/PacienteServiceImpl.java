@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.univille.dacs2022.dto.PacienteDTO;
-import br.univille.dacs2022.entity.Paciente;
+import br.univille.coredacs2022.entity.Paciente;
 import br.univille.dacs2022.mapper.PacienteMapper;
-import br.univille.dacs2022.repository.pacienteRepository;
+import br.univille.coredacs2022.repository.pacienteRepository;
 import br.univille.dacs2022.service.PacienteService;
 
 @Service
