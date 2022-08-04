@@ -26,13 +26,14 @@
         },
         {
             "type": "java",
-            "name": "Spring Boot-Dacs2022Application<dacs2022>",
+            "name": "Spring Boot-APIDacs2022Application<api>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "mainClass": "br.univille.dacs2022.Dacs2022Application",
-            "projectName": "dacs2022",
+            "mainClass": "br.univille.apidacs2022",
+            "projectName": "apidacs2022",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
-        }
+        },
+       
     ]
 }
