@@ -9,5 +9,6 @@ public interface PacienteService {
     public Paciente save(Paciente paciente);
     public Paciente findById(long id);
     public Paciente delete(long id);
+    public List<Paciente> getByName(String nome);
 }
 

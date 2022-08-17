@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,5 +25,11 @@ public class PacienteControllerAPI {
     public ResponseEntity<List<Paciente>> getAll() {
         var listaPacientes = service.getAll();
         return new ResponseEntity<List<Paciente>>(listaPacientes, HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<Paciente> insertPaciente(@RequestBody Paciente paciente) {
+        service.save(paciente);
+        return new ResponseEntity<Paciente>(paciente,HttpStatus.CREATED);
     }
 }
