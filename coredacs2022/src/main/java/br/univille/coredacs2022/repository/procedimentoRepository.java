@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import br.univille.coredacs2022.entity.Procedimento;
 
 @Repository
-public interface procedimentoRepository extends JpaRepository<Procedimento, Long> {
+public interface ProcedimentoRepository extends JpaRepository<Procedimento, Long> {
 
 }
 

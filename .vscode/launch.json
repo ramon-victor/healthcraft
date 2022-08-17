@@ -34,6 +34,35 @@
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         },
-       
+        {
+            "type": "java",
+            "name": "Spring Boot-Dacs2022Application<dacs2022>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.univille.dacs2022.Dacs2022Application",
+            "projectName": "dacs2022",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Apidacs2022Application<apidacs2022>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.univille.apidacs2022.Apidacs2022Application",
+            "projectName": "apidacs2022",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Coredacs2022Application<coredacs2022>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.univille.coredacs2022.Coredacs2022Application",
+            "projectName": "coredacs2022",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
     ]
 }

@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import br.univille.coredacs2022.entity.Paciente;
 
 @Repository
-public interface pacienteRepository extends JpaRepository<Paciente, Long> {
+public interface PacienteRepository extends JpaRepository<Paciente, Long> {
 
 }

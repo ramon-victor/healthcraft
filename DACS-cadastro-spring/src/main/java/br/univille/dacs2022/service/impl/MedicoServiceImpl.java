@@ -10,14 +10,14 @@ import org.springframework.stereotype.Service;
 import br.univille.dacs2022.dto.MedicoDTO;
 import br.univille.coredacs2022.entity.Medico;
 import br.univille.dacs2022.mapper.MedicoMapper;
-import br.univille.coredacs2022.repository.medicoRepository;
+import br.univille.coredacs2022.repository.MedicoRepository;
 import br.univille.dacs2022.service.MedicoService;
 
 @Service
 public class MedicoServiceImpl implements MedicoService {
 
     @Autowired
-    private medicoRepository repository;
+    private MedicoRepository repository;
 
     private MedicoMapper mapper
         = Mappers.getMapper(MedicoMapper.class);

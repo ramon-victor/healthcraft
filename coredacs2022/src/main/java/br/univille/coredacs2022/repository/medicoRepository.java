@@ -6,6 +6,6 @@ import br.univille.coredacs2022.entity.Medico;
 
 
 @Repository
-public interface medicoRepository extends JpaRepository<Medico, Long> {
+public interface MedicoRepository extends JpaRepository<Medico, Long> {
 
 }

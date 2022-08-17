@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
 import br.univille.dacs2022.dto.ProcedimentoDTO;
 import br.univille.coredacs2022.entity.Procedimento;
 import br.univille.dacs2022.mapper.ProcedimentoMapper;
-import br.univille.coredacs2022.repository.procedimentoRepository;
+import br.univille.coredacs2022.repository.ProcedimentoRepository;
 import br.univille.dacs2022.service.ProcedimentoService;
 
 @Service
 public class ProcedimentoServiceImpl implements ProcedimentoService{
 
     @Autowired
-    private procedimentoRepository repository;
+    private ProcedimentoRepository repository;
     
     private ProcedimentoMapper mapper
         = Mappers.getMapper(ProcedimentoMapper.class);
