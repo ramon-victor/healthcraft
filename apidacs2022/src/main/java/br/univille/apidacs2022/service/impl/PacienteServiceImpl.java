@@ -1,6 +1,7 @@
 package br.univille.apidacs2022.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,11 +30,19 @@ public class PacienteServiceImpl implements PacienteService{
 
     @Override
     public Paciente findById(long id) {
+        Optional<Paciente> paciente = repository.findById(id);
+        if(paciente.isPresent()) {
+            return paciente.get();
+        }
         return null;
     }
 
     @Override
     public Paciente delete(long id) {
+        Optional<Paciente> paciente = repository.findById(id);
+        if(paciente.isPresent()) {
+            repository.delete(paciente.get());
+        }
         return null;
     }
 

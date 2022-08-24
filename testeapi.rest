@@ -2,15 +2,29 @@ GET http://localhost:8081/api/v1/pacientes
 
 ###
 
-GET http://localhost:8081/api/v1/pacientes/nome/ze
+GET http://localhost:8081/api/v1/pacientes/nome/161
 
 ###
 POST http://localhost:8081/api/v1/pacientes
 content-Type: application/json
 
 {
+    "id": 1,
     "nome": "Zecão",
     "sexo": "Masculino",
     "dataNascimento": "2022-08-10T00:00:00"
 }
 
+###
+PUT http://localhost:8081/api/v1/pacientes/97
+content-Type: application/json
+
+{
+    "nome": "Zenelson",
+    "sexo": "Masculino",
+    "dataNascimento": "2022-08-10T00:00:00"
+}
+
+###
+
+DELETE http://localhost:8081/api/v1/pacientes/163
