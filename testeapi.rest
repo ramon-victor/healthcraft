@@ -2,7 +2,11 @@ GET http://localhost:8081/api/v1/pacientes
 
 ###
 
-GET http://localhost:8081/api/v1/pacientes/nome/161
+GET http://localhost:8081/api/v1/pacientes/165
+
+###
+
+GET http://localhost:8081/api/v1/pacientes/nome/Ze
 
 ###
 POST http://localhost:8081/api/v1/pacientes
@@ -16,7 +20,7 @@ content-Type: application/json
 }
 
 ###
-PUT http://localhost:8081/api/v1/pacientes/97
+PUT http://localhost:8081/api/v1/pacientes/165
 content-Type: application/json
 
 {
