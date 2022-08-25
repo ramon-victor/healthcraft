@@ -27,7 +27,7 @@ public class SwaggerConfig {
 
     @Bean
     public Docket api2() {
-        return new Docket(DocumentationType.OAS_30)
+        return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("br.univille.apidacs2022.api"))
                 .paths(PathSelectors.any())
