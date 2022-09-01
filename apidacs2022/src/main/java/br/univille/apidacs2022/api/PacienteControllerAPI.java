@@ -39,11 +39,10 @@ public class PacienteControllerAPI {
 
     @PostMapping
     public ResponseEntity<Paciente> insertPaciente(@RequestBody Paciente paciente) {
-        if (paciente.getId() == 1) {
+        if (paciente.getId() == 0) {
             service.save(paciente);
             return new ResponseEntity<Paciente>(paciente, HttpStatus.CREATED);
         }
-
         return ResponseEntity.badRequest().build();
     }
 
@@ -72,15 +71,6 @@ public class PacienteControllerAPI {
 
         return new ResponseEntity<Paciente>(pacienteAntigo, HttpStatus.OK);
     }
-
-    /*
-     * @GetMapping
-     * public ResponseEntity<List<Paciente>> getByNome2(@RequestParam("nome") String
-     * nome) {
-     * var listaPacientes = service.getByName(nome);
-     * return new ResponseEntity<List<Paciente>>(listaPacientes, HttpStatus.OK);
-     * }
-     */
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Paciente> update(@PathVariable("id") long id) {
