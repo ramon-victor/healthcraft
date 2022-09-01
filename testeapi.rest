@@ -1,5 +1,4 @@
 GET http://localhost:8081/api/v1/pacientes
-
 ###
 
 GET http://localhost:8081/api/v1/pacientes/165
@@ -13,7 +12,7 @@ POST http://localhost:8081/api/v1/pacientes
 content-Type: application/json
 
 {
-    "id": 1,
+    "id": 0,
     "nome": "Zecão",
     "sexo": "Masculino",
     "dataNascimento": "2022-08-10T00:00:00"
@@ -31,4 +30,73 @@ content-Type: application/json
 
 ###
 
-DELETE http://localhost:8081/api/v1/pacientes/163
+DELETE http://localhost:8081/api/v1/pacientes/300
+
+
+
+###
+GET http://localhost:8081/api/v1/medicos
+
+###
+
+GET http://localhost:8081/api/v1/medicos/161
+
+###
+
+GET http://localhost:8081/api/v1/medicos/nome/hu
+
+###
+POST http://localhost:8081/api/v1/medicos
+content-Type: application/json
+
+{
+    "id": 0,
+    "nome": "Amanda Garcia",
+    "crm": 12313
+}
+
+###
+PUT http://localhost:8081/api/v1/medicos/161
+content-Type: application/json
+
+{
+    "crm": 5423
+}
+
+###
+
+DELETE http://localhost:8081/api/v1/medicos/162
+
+###
+GET http://localhost:8081/api/v1/cidades
+
+###
+
+GET http://localhost:8081/api/v1/cidades/39
+
+###
+
+GET http://localhost:8081/api/v1/cidades/nome/Jo
+
+###
+
+POST http://localhost:8081/api/v1/cidades
+content-Type: application/json
+
+{
+    "id": 0,
+    "nome": "Curitiba"
+}
+
+###
+
+PUT http://localhost:8081/api/v1/cidades/67
+content-Type: application/json
+
+{
+    "nome": "São Paulo"
+}
+
+###
+
+DELETE http://localhost:8081/api/v1/cidades/67
