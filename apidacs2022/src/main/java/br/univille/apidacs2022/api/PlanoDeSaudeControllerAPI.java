@@ -20,7 +20,7 @@ import br.univille.coredacs2022.entity.PlanoDeSaude;
 
 @RestController
 @RequestMapping("/api/v1/planos")
-public class PlanoDeSaudeAPI {
+public class PlanoDeSaudeControllerAPI {
     
     @Autowired
     private PlanoDeSaudeService service;

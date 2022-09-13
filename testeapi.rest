@@ -90,7 +90,7 @@ content-Type: application/json
 
 ###
 
-PUT http://localhost:8081/api/v1/cidades/67
+PUT http://localhost:8081/api/v1/cidades/101
 content-Type: application/json
 
 {
@@ -99,4 +99,40 @@ content-Type: application/json
 
 ###
 
-DELETE http://localhost:8081/api/v1/cidades/67
+DELETE http://localhost:8081/api/v1/cidades/101
+
+
+###
+
+GET http://localhost:8081/api/v1/planos
+
+###
+
+GET http://localhost:8081/api/v1/planos/2
+
+###
+GET http://localhost:8081/api/v1/planos/nome/U
+
+###
+
+POST http://localhost:8081/api/v1/planos
+content-Type: application/json
+
+{
+    "id": 0,
+    "nome": "Herolife"
+}
+
+###
+
+PUT http://localhost:8081/api/v1/planos/4
+content-Type: application/json
+
+{
+    "nome": "HEROLIFE"
+}
+
+###
+
+DELETE http://localhost:8081/api/v1/planos/4
+
