@@ -46,10 +46,13 @@ public class CidadeServiceImpl implements CidadeService {
         return null;
     }
 
-
     @Override
     public List<Cidade> getByName(String nome) {
-        return repository.findByNomeIgnoreCaseContaining(nome);
+        // TODO Auto-generated method stub
+        return null;
     }
+
+
+   
     
 }

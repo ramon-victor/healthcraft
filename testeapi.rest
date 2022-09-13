@@ -136,3 +136,38 @@ content-Type: application/json
 
 DELETE http://localhost:8081/api/v1/planos/4
 
+###
+
+GET http://localhost:8081/api/v1/procedimentos
+
+
+###
+
+GET http://localhost:8081/api/v1/procedimentos/33
+
+###
+
+GET http://localhost:8081/api/v1/procedimentos/descricao/C
+
+###
+
+POST http://localhost:8081/api/v1/procedimentos
+content-Type: application/json
+
+{
+    "id": 0,
+    "descricao": "Passo Suave"
+}
+
+###
+
+PUT http://localhost:8081/api/v1/procedimentos/97
+content-Type: application/json
+
+{
+    "descricao": "Corta Cura"
+}
+
+###
+
+DELETE http://localhost:8081/api/v1/procedimentos/97
