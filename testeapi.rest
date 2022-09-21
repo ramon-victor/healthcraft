@@ -1,3 +1,5 @@
+# @name loginAPI
+
 POST http://localhost:8081/api/v1/auth/signin
 content-Type: application/json
 
@@ -7,17 +9,23 @@ content-Type: application/json
 }
 
 ###
+
+@token = {{loginAPI.response.body.*}}
+
+###
 GET http://localhost:8081/api/v1/pacientes
+Authorization: Bearer {{token}}
 ###
 
 GET http://localhost:8081/api/v1/pacientes/165
-
+Authorization: Bearer {{token}}
 ###
 
 GET http://localhost:8081/api/v1/pacientes/nome/Ze
-
+Authorization: Bearer {{token}}
 ###
 POST http://localhost:8081/api/v1/pacientes
+Authorization: Bearer {{token}}
 content-Type: application/json
 
 {
@@ -29,6 +37,7 @@ content-Type: application/json
 
 ###
 PUT http://localhost:8081/api/v1/pacientes/165
+Authorization: Bearer {{token}}
 content-Type: application/json
 
 {
@@ -40,22 +49,27 @@ content-Type: application/json
 ###
 
 DELETE http://localhost:8081/api/v1/pacientes/300
+Authorization: Bearer {{token}}
 
 
 
 ###
 GET http://localhost:8081/api/v1/medicos
+Authorization: Bearer {{token}}
 
 ###
 
 GET http://localhost:8081/api/v1/medicos/161
+Authorization: Bearer {{token}}
 
 ###
 
 GET http://localhost:8081/api/v1/medicos/nome/hu
+Authorization: Bearer {{token}}
 
 ###
 POST http://localhost:8081/api/v1/medicos
+Authorization: Bearer {{token}}
 content-Type: application/json
 
 {
@@ -66,6 +80,7 @@ content-Type: application/json
 
 ###
 PUT http://localhost:8081/api/v1/medicos/161
+Authorization: Bearer {{token}}
 content-Type: application/json
 
 {
@@ -75,21 +90,26 @@ content-Type: application/json
 ###
 
 DELETE http://localhost:8081/api/v1/medicos/162
+Authorization: Bearer {{token}}
 
 ###
 GET http://localhost:8081/api/v1/cidades
+Authorization: Bearer {{token}}
 
 ###
 
 GET http://localhost:8081/api/v1/cidades/39
+Authorization: Bearer {{token}}
 
 ###
 
 GET http://localhost:8081/api/v1/cidades/nome/Jo
+Authorization: Bearer {{token}}
 
 ###
 
 POST http://localhost:8081/api/v1/cidades
+Authorization: Bearer {{token}}
 content-Type: application/json
 
 {
@@ -100,6 +120,7 @@ content-Type: application/json
 ###
 
 PUT http://localhost:8081/api/v1/cidades/101
+Authorization: Bearer {{token}}
 content-Type: application/json
 
 {
@@ -109,22 +130,27 @@ content-Type: application/json
 ###
 
 DELETE http://localhost:8081/api/v1/cidades/101
+Authorization: Bearer {{token}}
 
 
 ###
 
 GET http://localhost:8081/api/v1/planos
+Authorization: Bearer {{token}}
 
 ###
 
 GET http://localhost:8081/api/v1/planos/2
+Authorization: Bearer {{token}}
 
 ###
 GET http://localhost:8081/api/v1/planos/nome/U
+Authorization: Bearer {{token}}
 
 ###
 
 POST http://localhost:8081/api/v1/planos
+Authorization: Bearer {{token}}
 content-Type: application/json
 
 {
@@ -135,6 +161,7 @@ content-Type: application/json
 ###
 
 PUT http://localhost:8081/api/v1/planos/4
+Authorization: Bearer {{token}}
 content-Type: application/json
 
 {
@@ -144,23 +171,28 @@ content-Type: application/json
 ###
 
 DELETE http://localhost:8081/api/v1/planos/4
+Authorization: Bearer {{token}}
 
 ###
 
 GET http://localhost:8081/api/v1/procedimentos
+Authorization: Bearer {{token}}
 
 
 ###
 
 GET http://localhost:8081/api/v1/procedimentos/33
+Authorization: Bearer {{token}}
 
 ###
 
 GET http://localhost:8081/api/v1/procedimentos/descricao/C
+Authorization: Bearer {{token}}
 
 ###
 
 POST http://localhost:8081/api/v1/procedimentos
+Authorization: Bearer {{token}}
 content-Type: application/json
 
 {
@@ -171,6 +203,7 @@ content-Type: application/json
 ###
 
 PUT http://localhost:8081/api/v1/procedimentos/97
+Authorization: Bearer {{token}}
 content-Type: application/json
 
 {
@@ -180,3 +213,4 @@ content-Type: application/json
 ###
 
 DELETE http://localhost:8081/api/v1/procedimentos/97
+Authorization: Bearer {{token}}
