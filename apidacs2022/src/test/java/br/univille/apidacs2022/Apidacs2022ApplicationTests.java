@@ -25,10 +25,9 @@ class Apidacs2022ApplicationTests {
 
 	@Autowired
 	private PacienteControllerAPI pacienteControllerAPI;
-	
+
 	@Autowired
 	private MedicoControllerAPI medicoControllerAPI;
-
 
 	@Autowired
 	private MockMvc mockMvc;
@@ -39,87 +38,120 @@ class Apidacs2022ApplicationTests {
 		assertThat(medicoControllerAPI).isNotNull();
 	}
 
-
 	@Test
-	void pacienteControllerAPIPOSTGETTest() throws Exception{
-		MvcResult result = 
-		mockMvc.perform(post("/api/v1/pacientes")
-		.content("{\"nome\":\"Zezinho\",\"sexo\":\"Masculino\"}")
-		.contentType(MediaType.APPLICATION_JSON))
-		.andExpect(status().isCreated()).andReturn();
+	void pacienteControllerAPIPOSTGETTest() throws Exception {
+		MvcResult resultAuth = mockMvc.perform(post("/api/v1/auth/signin")
+				.content("{\"usuario\":\"admin\",\"senha\":\"admin\"}")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk()).andReturn();
+		String jwtToken = resultAuth.getResponse().getContentAsString();
+
+		MvcResult result = mockMvc.perform(post("/api/v1/pacientes")
+				.content("{\"nome\":\"Zezinho\",\"sexo\":\"Masculino\"}")
+				.header("Authorization", "Bearer " + jwtToken)
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isCreated()).andReturn();
 
 		String resultString = result.getResponse().getContentAsString();
 		JSONObject objJson = new JSONObject(resultString);
-		
-		mockMvc.perform(get("/api/v1/pacientes/" + objJson.getString("id")))
-			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.nome", is("Zezinho")))
-			.andExpect(jsonPath("$.sexo", is("Masculino")));
+
+		mockMvc.perform(get("/api/v1/pacientes/" + objJson.getString("id"))
+				.header("Authorization", "Bearer " + jwtToken))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.nome", is("Zezinho")))
+				.andExpect(jsonPath("$.sexo", is("Masculino")));
 	}
 
-
 	@Test
-	void medicoControllerAPIPOSTGETTest() throws Exception{
-		MvcResult result = 
-		mockMvc.perform(post("/api/v1/medicos")
-		.content("{\"nome\":\"Gedso\",\"crm\":12345}")
-		.contentType(MediaType.APPLICATION_JSON))
-		.andExpect(status().isCreated()).andReturn();
+	void medicoControllerAPIPOSTGETTest() throws Exception {
+		MvcResult resultAuth = mockMvc.perform(post("/api/v1/auth/signin")
+				.content("{\"usuario\":\"admin\",\"senha\":\"admin\"}")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk()).andReturn();
+		String jwtToken = resultAuth.getResponse().getContentAsString();
+
+		MvcResult result = mockMvc.perform(post("/api/v1/medicos")
+				.header("Authorization", "Bearer " + jwtToken)
+				.content("{\"nome\":\"Gedso\",\"crm\":12345}")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isCreated()).andReturn();
 
 		String resultString = result.getResponse().getContentAsString();
 		JSONObject objJson = new JSONObject(resultString);
 
-		mockMvc.perform(get("/api/v1/medicos/" + objJson.getString("id")))
-			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.nome", is("Gedso")))
-			.andExpect(jsonPath("$.crm", is("12345")));
+		mockMvc.perform(get("/api/v1/medicos/" + objJson.getString("id"))
+				.header("Authorization", "Bearer " + jwtToken))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.nome", is("Gedso")))
+				.andExpect(jsonPath("$.crm", is("12345")));
 	}
 
 	@Test
 	void cidadeControllerAPIPOSTGETTest() throws Exception {
-		MvcResult result = 
-		mockMvc.perform(post("/api/v1/cidades")
-		.content("{\"nome\":\"São Paulo\"}")
-		.contentType(MediaType.APPLICATION_JSON))
-		.andExpect(status().isCreated()).andReturn();
+		MvcResult resultAuth = mockMvc.perform(post("/api/v1/auth/signin")
+				.content("{\"usuario\":\"admin\",\"senha\":\"admin\"}")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk()).andReturn();
+		String jwtToken = resultAuth.getResponse().getContentAsString();
+
+		MvcResult result = mockMvc.perform(post("/api/v1/cidades")
+				.header("Authorization", "Bearer " + jwtToken)
+				.content("{\"nome\":\"São Paulo\"}")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isCreated()).andReturn();
 
 		String resultString = result.getResponse().getContentAsString();
 		JSONObject objJson = new JSONObject(resultString);
 
-		mockMvc.perform(get("/api/v1/cidades/" + objJson.getString("id")))
-			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.nome", is("São Paulo")));
+		mockMvc.perform(get("/api/v1/cidades/" + objJson.getString("id"))
+				.header("Authorization", "Bearer " + jwtToken))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.nome", is("São Paulo")));
 	}
 
 	@Test
 	void planosControllerAPIPOSTGETTest() throws Exception {
-		MvcResult result = 
-		mockMvc.perform(post("/api/v1/planos")
-		.content("{\"nome\":\"Herolife\"}")
-		.contentType(MediaType.APPLICATION_JSON))
-		.andExpect(status().isCreated()).andReturn();
+		MvcResult resultAuth = mockMvc.perform(post("/api/v1/auth/signin")
+				.content("{\"usuario\":\"admin\",\"senha\":\"admin\"}")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk()).andReturn();
+		String jwtToken = resultAuth.getResponse().getContentAsString();
+
+		MvcResult result = mockMvc.perform(post("/api/v1/planos")
+				.header("Authorization", "Bearer " + jwtToken)
+				.content("{\"nome\":\"Herolife\"}")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isCreated()).andReturn();
 
 		String resultString = result.getResponse().getContentAsString();
 		JSONObject objJson = new JSONObject(resultString);
 
-		mockMvc.perform(get("/api/v1/planos/" + objJson.getString("id")))
-			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.nome", is("Herolife")));
+		mockMvc.perform(get("/api/v1/planos/" + objJson.getString("id"))
+				.header("Authorization", "Bearer " + jwtToken))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.nome", is("Herolife")));
 	}
 
 	@Test
 	void procedimentosControllerAPIPOSTGETTest() throws Exception {
-		MvcResult result = 
-		mockMvc.perform(post("/api/v1/procedimentos")
-		.content("{\"descricao\":\"Cura Veneno\"}")
-		.contentType(MediaType.APPLICATION_JSON))
-		.andExpect(status().isCreated()).andReturn();
+		MvcResult resultAuth = mockMvc.perform(post("/api/v1/auth/signin")
+				.content("{\"usuario\":\"admin\",\"senha\":\"admin\"}")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk()).andReturn();
+		String jwtToken = resultAuth.getResponse().getContentAsString();
+
+		MvcResult result = mockMvc.perform(post("/api/v1/procedimentos")
+				.header("Authorization", "Bearer " + jwtToken)
+				.content("{\"descricao\":\"Cura Veneno\"}")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isCreated()).andReturn();
 
 		String resultString = result.getResponse().getContentAsString();
 		JSONObject objJson = new JSONObject(resultString);
 
-		mockMvc.perform(get("/api/v1/procedimentos/" + objJson.getString("id")))
-			.andExpect(status().isOk())
-			.andExpect(jsonPath("$.descricao", is("Cura Veneno")));
+		mockMvc.perform(get("/api/v1/procedimentos/" + objJson.getString("id"))
+				.header("Authorization", "Bearer " + jwtToken))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.descricao", is("Cura Veneno")));
 	}
 }
