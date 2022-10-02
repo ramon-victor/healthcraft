@@ -78,7 +78,7 @@ public class MedicoControllerAPI {
             return ResponseEntity.notFound().build();
         }
 
-        service.delete(id);
+        service.delete(medicoAntigo.getId());
 
         return new ResponseEntity<Medico>(medicoAntigo, HttpStatus.OK);
     }

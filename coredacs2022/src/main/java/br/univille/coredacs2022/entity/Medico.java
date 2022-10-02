@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Medico {
     @Id
@@ -18,6 +20,7 @@ public class Medico {
     private String nome;
     private String CRM;
     @ManyToMany(cascade = { CascadeType.MERGE, CascadeType.REFRESH })
+    @JsonIgnore
     private List<Procedimento> listaProcedimentos = new ArrayList<>();
 
     

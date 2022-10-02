@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 // POJO - Plain Old Java Object
 @Entity
@@ -30,6 +32,7 @@ public class Paciente {
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     private Cidade cidade;
     @ManyToMany(cascade = {CascadeType.REFRESH, CascadeType.MERGE})
+    @JsonIgnore
     private List<PlanoDeSaude> listaPlanos = new ArrayList<>();
 
 
