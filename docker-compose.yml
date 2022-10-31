@@ -1,0 +1,24 @@
+version: '3'
+services: 
+  dbramon:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'dacs2022'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: 'root'
+      MYSQL_ROOT_PASSWORD: 'root'
+#    ports:
+#     - '3306:3306'
+  webdacasramon:
+    image: ramondacs2022:latest
+    depends_on: 
+    - "dbramon"
+    ports: 
+    - "8096:8081"
+    environment:
+    - DB_HOST=dbramon
+    - DB_USER=root
+    - DB_PASSWORD=root
+    - DB_NAME=dacs2022
+    - SPRING_PROFILE_ACTIVE=prod
